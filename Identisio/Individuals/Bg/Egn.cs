@@ -6,6 +6,9 @@ using System.Text.RegularExpressions;
 namespace Identisio.Individuals.Bg
 {
 
+    /// <summary>
+    /// EGN (ЕГН) is the identification code for all bulgarian citizens
+    /// </summary>
     public class Egn : IdentifierBase, IEncodesGender, IEncodesBirthdate
     {
 

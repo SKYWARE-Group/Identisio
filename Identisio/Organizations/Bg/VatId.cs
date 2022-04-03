@@ -5,8 +5,12 @@ using System.Text;
 namespace Identisio.Organizations.Bg
 {
 
+    /// <summary>
+    /// VAT ncode of Bulgarian legal entities (compatable with EU VAT number)
+    /// </summary>
     public class VatId : IdentifierBase
     {
+
         public override string Name => "VAT Identification code";
 
         public override string NativeAbbreviation => "ИН по ДДС";

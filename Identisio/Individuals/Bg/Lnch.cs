@@ -5,6 +5,10 @@ using System.Text.RegularExpressions;
 
 namespace Identisio.Individuals.Bg
 {
+
+    /// <summary>
+    /// LNCH (ЛНЧ) is the identification code for for foreigners in Bulgaria, who have permanent residential rifgts
+    /// </summary>
     public class Lnch : IdentifierBase
     {
 

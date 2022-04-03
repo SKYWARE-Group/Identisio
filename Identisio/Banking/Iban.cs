@@ -5,8 +5,12 @@ using System.Text;
 namespace Identisio.Banking
 {
 
+    /// <summary>
+    /// International Bank Account Number
+    /// </summary>
     public class Iban : IdentifierBase
     {
+
         public override string Name => "International Bank Account Number";
 
         public override string NativeAbbreviation => "IBAN";

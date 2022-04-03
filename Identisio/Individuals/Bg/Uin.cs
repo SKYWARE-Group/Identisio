@@ -19,7 +19,7 @@ namespace Identisio.Individuals.Bg
 
         public override bool IsPrivateData => false;
 
-        //public new static bool Validate(string value) => throw new NotImplementedException();
+        //TODO: Implement Validate (Parse?)
 
     }
 

@@ -3,6 +3,10 @@ using System.Text.RegularExpressions;
 
 namespace Identisio.Individuals.Yu
 {
+
+    /// <summary>
+    /// JMBG is the national identifier for Yougoslavia citizens, stil in use in some Serbia, Noth Macedonia, Slovenia and Bosnia and Herzegovina
+    /// </summary>
     public class YuPid : IdentifierBase, IEncodesGender, IEncodesBirthdate
     {
 
