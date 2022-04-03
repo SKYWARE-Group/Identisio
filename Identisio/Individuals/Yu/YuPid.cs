@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
 
-namespace Identisio.Personal.Yu
+namespace Identisio.Individuals.Yu
 {
     public class YuPid : IdentifierBase, IEncodesGender, IEncodesBirthdate
     {
@@ -17,9 +17,9 @@ namespace Identisio.Personal.Yu
 
         private YuPid(string yuValue, bool isMaleValue, DateTime birthdateValue)
         {
-            this.Value = yuValue;
-            this.IsMale = isMaleValue;
-            this.Birthdate = birthdateValue;
+            Value = yuValue;
+            IsMale = isMaleValue;
+            Birthdate = birthdateValue;
         }
 
         #endregion
@@ -63,7 +63,7 @@ namespace Identisio.Personal.Yu
         {
             try
             {
-                result = YuPid.Parse(value);
+                result = Parse(value);
                 return true;
             }
             catch (Exception)
@@ -91,7 +91,7 @@ namespace Identisio.Personal.Yu
         }
 
         // Data extraction
-        
+
         private static DateTime ParseDob(string Value)
         {
             int Year = int.Parse(Value.Substring(4, 3));

@@ -2,8 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Identisio.Personal.Bg
+namespace Identisio.Individuals.Bg
 {
+
+    /// <summary>
+    /// UIN (УИН) are identifiers for doctors in bulgaria and are issued by BMA (БЛС)
+    /// </summary>
     public class Uin : IdentifierBase
     {
 
@@ -15,7 +19,7 @@ namespace Identisio.Personal.Bg
 
         public override bool IsPrivateData => false;
 
-        public static bool Validate(string value) => throw new NotImplementedException();
+        //public new static bool Validate(string value) => throw new NotImplementedException();
 
     }
 

@@ -1,4 +1,4 @@
-﻿using Identisio.Personal.Bg;
+﻿using Identisio.Individuals.Bg;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Identisio.Personal.Bg
+namespace Identisio.Individuals.Bg
 {
 
     public class Egn : IdentifierBase, IEncodesGender, IEncodesBirthdate
@@ -22,9 +22,9 @@ namespace Identisio.Personal.Bg
 
         private Egn(string egnValue, bool isMaleValue, DateTime birthdateValue)
         {
-            this.Value = egnValue;
-            this.IsMale = isMaleValue;
-            this.Birthdate = birthdateValue;
+            Value = egnValue;
+            IsMale = isMaleValue;
+            Birthdate = birthdateValue;
         }
 
         #endregion
@@ -67,7 +67,7 @@ namespace Identisio.Personal.Bg
         {
             try
             {
-                result = Egn.Parse(value);
+                result = Parse(value);
                 return true;
             }
             catch (Exception)

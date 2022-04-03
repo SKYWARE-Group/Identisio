@@ -1,4 +1,4 @@
-﻿using Identisio.Personal.Yu;
+﻿using Identisio.Individuals.Yu;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Identisio.Personal.Bg
+namespace Identisio.Individuals.Bg
 {
     public class Lnch : IdentifierBase
     {
@@ -14,7 +14,7 @@ namespace Identisio.Personal.Bg
         private static readonly Regex _Regex = new Regex(_LnchRegex);
 
         private static readonly int[] _Weights = new int[] { 21, 19, 17, 13, 11, 9, 7, 3, 1 };
-        
+
         #endregion
 
         #region Props

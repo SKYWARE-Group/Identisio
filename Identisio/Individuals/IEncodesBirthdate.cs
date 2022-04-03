@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Identisio.Personal
+namespace Identisio.Individuals
 {
     public interface IEncodesBirthdate
     {
