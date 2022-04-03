@@ -11,7 +11,7 @@ namespace Identisio.Organizations.Bg
     public class VatId : IdentifierBase
     {
 
-        public override string Name => "VAT Identification code";
+        public override string Name => "VAT Identification Code";
 
         public override string NativeAbbreviation => "ИН по ДДС";
 
