@@ -5,6 +5,10 @@ using System.Text;
 namespace Identisio
 {
 
+
+    /// <summary>
+    /// Abstract class for all the identifiers in the library
+    /// </summary>
     public abstract class IdentifierBase
     {
 
@@ -24,23 +28,29 @@ namespace Identisio
         public abstract string Name { get; }
 
         /// <summary>
-        /// Full identifier name in the language used by the country that uses it.
+        /// Abbreviation in the native language such as 'SSN', 'ЕГН', etc.
         /// </summary>
-        public abstract string NativeShortName { get; }
+        public abstract string NativeAbbreviation { get; }
 
         /// <summary>
-        /// Short identifier name in the language used by the country that uses it.
+        /// Name according to the native language and regulation
         /// </summary>
         public abstract string NativeName { get; }
 
         /// <summary>
+        /// GDPR or equivalent egulation flag
+        /// </summary>
+        public abstract bool IsPrivateData { get; }
+
+        /// <summary>
         /// Validate the identifier
         /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
+        /// <param name="value">The value of the identifier</param>
+        /// <returns>Result of the validation</returns>
         /// <exception cref="NotImplementedException"></exception>
         public static bool Validate(string value) => throw new NotImplementedException();
 
     }
+
 
 }

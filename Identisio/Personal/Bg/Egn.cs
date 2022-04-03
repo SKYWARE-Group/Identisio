@@ -33,7 +33,7 @@ namespace Identisio.Personal.Bg
 
         public override string Name => "Unified Personal Number";
 
-        public override string NativeShortName => "ЕГН";
+        public override string NativeAbbreviation => "ЕГН";
 
         public override string NativeName => "Единен граждански номер";
 
@@ -41,70 +41,63 @@ namespace Identisio.Personal.Bg
 
         public DateTime Birthdate { get; private set; }
 
+        public override bool IsPrivateData => true;
+
         #endregion
 
         #region Actions
 
         // Creation
 
-        public static Egn Parse(string inputEgn)
+        public static Egn Parse(string value)
         {
             // Validity check
-            if (string.IsNullOrWhiteSpace(inputEgn)) throw new ArgumentException(nameof(inputEgn));
-            if (!_Regex.IsMatch(inputEgn.Trim())) throw new ArgumentException(nameof(inputEgn), $"Invalid {nameof(Egn)} format");
-            if (!IsCheckSumValid(inputEgn)) throw new ArgumentException(nameof(inputEgn), $"Bad {nameof(Egn)} checksum");
+            if (string.IsNullOrWhiteSpace(value)) throw new ArgumentException(nameof(value));
+            if (!_Regex.IsMatch(value.Trim())) throw new ArgumentException(nameof(value), $"Invalid {nameof(Egn)} format");
+            if (!IsCheckSumValid(value)) throw new ArgumentException(nameof(value), $"Bad {nameof(Egn)} checksum");
 
             // Values extraction
-            var dateOfBirth = ParseDob(inputEgn);
-            var isMale = ParseIsMale(inputEgn);
+            var dateOfBirth = ParseDob(value);
+            var isMale = ParseIsMale(value);
 
-            return new Egn(inputEgn, isMale, dateOfBirth);
+            return new Egn(value, isMale, dateOfBirth);
         }
 
-        public static bool TryParse(string inputEgn, out Egn result)
+        public static bool TryParse(string value, out Egn result)
         {
-            result = null;
-
-            // Validity check
-            if (string.IsNullOrWhiteSpace(inputEgn)) return false;
-            if (!_Regex.IsMatch(inputEgn.Trim())) return false;
-            if (!IsCheckSumValid(inputEgn)) return false;
-
-            // Values extraction
             try
             {
-                var dateOfBirth = ParseDob(inputEgn);
-                var isMale = ParseIsMale(inputEgn);
-                
-                result = new Egn(inputEgn, isMale, dateOfBirth);
+                result = Egn.Parse(value);
                 return true;
-            } 
-            catch (Exception) { }
-            
-            return false;
+            }
+            catch (Exception)
+            {
+                result = null;
+                return false;
+            }
         }
 
         // Validation
 
-        public new static bool Validate(string iputEgn)
+        public new static bool Validate(string value)
         {
-            if (string.IsNullOrWhiteSpace(iputEgn)) return false;
-            if (!_Regex.IsMatch(iputEgn.Trim())) return false;
-            if (!IsCheckSumValid(iputEgn)) return false;
+            if (string.IsNullOrWhiteSpace(value)) return false;
+            if (!_Regex.IsMatch(value.Trim())) return false;
+            if (!IsCheckSumValid(value)) return false;
             return true;
         }
 
-        private static bool IsCheckSumValid(string inputEgn)
+        private static bool IsCheckSumValid(string value)
         {
             int sum = 0;
-            for (int i = 0; i <= 8; i++) sum += int.Parse(inputEgn.Substring(i, 1)) * _Weights[i];
+            for (int i = 0; i <= 8; i++) sum += int.Parse(value.Substring(i, 1)) * _Weights[i];
             sum = sum % 11 % 10;
-            return sum == int.Parse(inputEgn.Substring(9, 1));
+            return sum == int.Parse(value.Substring(9, 1));
         }
 
         // Data extraction methods
 
-        private static bool ParseIsMale(string inputEgn) => int.Parse(inputEgn.Substring(8, 1)) % 2 == 0;
+        private static bool ParseIsMale(string value) => int.Parse(value.Substring(8, 1)) % 2 == 0;
 
         private static DateTime ParseDob(string inputEgn)
         {

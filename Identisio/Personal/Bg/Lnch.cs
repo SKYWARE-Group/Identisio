@@ -21,9 +21,11 @@ namespace Identisio.Personal.Bg
 
         public override string Name => "Personal Identifier of a Foreigner";
 
-        public override string NativeShortName => "ЛНЧ";
+        public override string NativeAbbreviation => "ЛНЧ";
 
         public override string NativeName => "Личен номер на чужденец";
+
+        public override bool IsPrivateData => true;
 
         #endregion
 

@@ -26,20 +26,23 @@ namespace Identisio.Personal.Yu
 
         #region Props
 
-        public override string Name => "Unique master civil number";
+        public override string Name => "Unique Master Citizen Number";
 
-        public override string NativeShortName => "ЕМБГ/JMBG/JMБГ/EMŠO";
+        public override string NativeAbbreviation => "ЕМБГ/JMBG/JMБГ/EMŠO";
 
-        public override string NativeName => "Единствен матичен номер на гражданите";
+        public override string NativeName => "Eдинствен матичен број на граѓаните";
 
         public bool IsMale { get; private set; }
 
         public DateTime Birthdate { get; private set; }
 
+        public override bool IsPrivateData => true;
+
+
         #endregion
 
         #region Actions
-        
+
         // Creation
 
         public static YuPid Parse(string yuValue)
@@ -56,27 +59,18 @@ namespace Identisio.Personal.Yu
             return new YuPid(yuValue, isMale, dateOfBirth);
         }
 
-        public static bool TryParse(string yuValue, out YuPid result)
+        public static bool TryParse(string value, out YuPid result)
         {
-            result = null;
-
-            // Validity check
-            if (string.IsNullOrWhiteSpace(yuValue)) return false;
-            if (!_Regex.IsMatch(yuValue)) return false;
-            if (!IsCheckSumValid(yuValue)) return false;
-
-            // Values extraction
             try
             {
-                var dateOfBirth = ParseDob(yuValue);
-                var isMale = ParseIsMale(yuValue);
-
-                result = new YuPid(yuValue, isMale, dateOfBirth);
+                result = YuPid.Parse(value);
                 return true;
             }
-            catch (Exception) { }
-
-            return false;
+            catch (Exception)
+            {
+                result = null;
+                return false;
+            }
         }
 
         // Validity Checks

@@ -13,7 +13,7 @@ namespace Identisio.Personal.Bg
 
         public override string NativeName => "Уникален идентификцаионен номер на лекар";
 
-        public override bool IsPersonalData => false;
+        public override bool IsPrivateData => false;
 
         public static bool Validate(string value) => throw new NotImplementedException();
 
