@@ -1,23 +1,54 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyName>Skyware.Identisio</AssemblyName>
-    <RootNamespace>Skyware.Identisio</RootNamespace>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<AssemblyName>Skyware.Identisio</AssemblyName>
+		<RootNamespace>Skyware.Identisio</RootNamespace>
+		<Authors>Mikhail Kalatchev</Authors>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Company>SKYWARE Group</Company>
+		<Description>Worldwide identifiers library</Description>
+		<Copyright>Copyright (C) 2022, SKYWARE Group</Copyright>
+		<PackageIcon>identisio-icon.png</PackageIcon>
+		<PackageReadmeFile>nuget-read-me.md</PackageReadmeFile>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>Identifier;Validation</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<RepositoryUrl>https://github.com/SKYWARE-Group/Identisio</RepositoryUrl>
+		<Version>0.1.0</Version>
+		<Title>Identisio</Title>
+		<PackageProjectUrl>https://github.com/SKYWARE-Group/Identisio</PackageProjectUrl>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="Resources\Bg\practice-types.xml" />
-    <None Remove="Resources\Bg\regions.xml" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="Assets\nuget-read-me.md" />
+		<None Remove="Assets\identisio-icon.png" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <Content Include="Resources\Bg\practice-types.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\Bg\regions.xml">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
+	<ItemGroup>
+		<Content Include="Assets\nuget-read-me.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</Content>
+		<Content Include="Assets\identisio-icon.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</Content>
+	</ItemGroup>
+	
+
+	<ItemGroup>
+		<None Remove="Resources\Bg\practice-types.xml" />
+		<None Remove="Resources\Bg\regions.xml" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="Resources\Bg\practice-types.xml">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Include="Resources\Bg\regions.xml">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
 
 </Project>
