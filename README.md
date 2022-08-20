@@ -1,6 +1,12 @@
 # <img src="Identisio/Assets/identisio-icon.png" height="28"> Identisio
 
-This project is an attempt to build parsing and validation library for variety of identifiers, such as IBAN, Vat numbers, etc.
+This project is an attempt to build parsing and validation library for a variety of identifiers, such as IBAN, Vat numbers, etc.
+
+## Usage
+
+The easiest way to use this library is to get it from NuGet as follows:
+
+`Install-Package Skyware.Identisio`
 
 ## Currently supported identifiers
 
