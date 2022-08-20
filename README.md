@@ -8,6 +8,16 @@ The easiest way to use this library is to get it from NuGet as follows:
 
 `Install-Package Skyware.Identisio`
 
+The identifiers comply with the well-known patterns, such as `Validate()`, `Parse(string id)` and `TryParse(string id, object x)`.
+
+Example code:
+
+```c#
+var egn = Egn.Parse("6101057509");
+Assert.IsTrue(egn.IsMale);
+Assert.IsTrue(egn.Birthdate == new DateTime(1961, 1, 5));
+```
+
 ## Currently supported identifiers
 
 ### <img src="Assets/individual.png" height="24"> Individuals
