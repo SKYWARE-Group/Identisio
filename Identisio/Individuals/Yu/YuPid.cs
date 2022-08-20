@@ -1,7 +1,8 @@
-﻿using System;
+﻿using Skyware.Identisio.Individuals;
+using System;
 using System.Text.RegularExpressions;
 
-namespace Identisio.Individuals.Yu
+namespace Skyware.Identisio.Individuals.Yu
 {
 
     /// <summary>

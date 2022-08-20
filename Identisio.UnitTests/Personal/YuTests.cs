@@ -1,5 +1,5 @@
-﻿using Identisio.Individuals.Yu;
-using NUnit.Framework;
+﻿using NUnit.Framework;
+using Skyware.Identisio.Individuals.Yu;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Identisio.Individuals
+namespace Skyware.Identisio.Individuals
 {
     public interface IEncodesGender
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Identisio.Individuals.Bg
+namespace Skyware.Identisio.Individuals.Bg
 {
 
     /// <summary>

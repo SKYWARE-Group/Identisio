@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Identisio.Banking
+namespace Skyware.Identisio.Banking
 {
 
     /// <summary>

@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Skyware.Identisio</AssemblyName>
+    <RootNamespace>Skyware.Identisio</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

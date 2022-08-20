@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Identisio.Organizations.Bg
+namespace Skyware.Identisio.Organizations.Bg
 {
 
     /// <summary>
@@ -15,7 +15,7 @@ namespace Identisio.Organizations.Bg
 
         public override string NativeAbbreviation => "ИН по ДДС";
 
-        public override string NativeName => "Идентификационен код по ЗДСС";
+        public override string NativeName => "Идентификационен код по ЗДДС";
 
         public override bool IsPrivateData => false;
 
