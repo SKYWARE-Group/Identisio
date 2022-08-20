@@ -6,7 +6,7 @@ namespace Identisio.Organizations.Bg
 {
 
     /// <summary>
-    /// VAT ncode of Bulgarian legal entities (compatable with EU VAT number)
+    /// VAT code of Bulgarian legal entities (compatable with EU VAT numbers)
     /// </summary>
     public class VatId : IdentifierBase
     {

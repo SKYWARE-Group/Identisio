@@ -1,0 +1,458 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<PracticeTypes>
+  <PracticeType>
+    <Code>911</Code>
+    <Name>(ведомствени болници -лечебни заведения ) болница за активно лечение - многопрофилна</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>912</Code>
+    <Name>(ведомствени болници -лечебни заведения ) болница за активно лечение - специализирана</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>913</Code>
+    <Name>(ведомствени болници -лечебни заведения ) болница за активно лечение - специализирана , филиал</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>914</Code>
+    <Name>(ведомствени болници -лечебни заведения ) болница за активно лечение - национална , специализрана</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>921</Code>
+    <Name>(ведомствени болници -лечебни заведения ) болница за долекуване - многопрофилна</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>922</Code>
+    <Name>(ведомствени болници -лечебни заведения ) болница за долекуване - специализирана</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>924</Code>
+    <Name>(ведомствени болници -лечебни заведения ) болница за долекуване - национална , специализрана</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>931</Code>
+    <Name>(ведомствени болници -лечебни заведения ) болница за рехабилитация - многопрофилна</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>141</Code>
+    <Name>Медико-Диагностична Лаборатория</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>true</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>932</Code>
+    <Name>(ведомствени болници -лечебни заведения ) болница за рехабилитация  - специализирана</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>923</Code>
+    <Name>(ведомствени болници -лечебни заведения ) болница за долекуване - специализрана , филиал</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>933</Code>
+    <Name>(ведомствени болници -лечебни заведения ) болница за рехабилитация - специализирана , филиал</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>934</Code>
+    <Name>(ведомствени болници -лечебни заведения ) болница за рехабилитация - национална , специализирана</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>941</Code>
+    <Name>(ведомствени болници -лечебни заведения )  психиатрична болница - многопрофилна</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>942</Code>
+    <Name>(ведомствени болници -лечебни заведения )  психиатрична болница - специализирана</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>943</Code>
+    <Name>(ведомствени болници -лечебни заведения )  психиатрична болница - специализирана , филиал</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>944</Code>
+    <Name>(ведомствени болници -лечебни заведения )  психиатрична болница - национална , специализирана</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>142</Code>
+    <Name>Медико-техническа  лаборатория</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>143</Code>
+    <Name>РИОКОЗ</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>145</Code>
+    <Name>НЦЗПБ</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>112</Code>
+    <Name>Индивидуална първична извънболнична стоматологична практика</Name>
+    <IsIndividual>true</IsIndividual>
+    <CanPublish>true</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>113</Code>
+    <Name>Групова първична извънболнична медицинска практика</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>true</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>114</Code>
+    <Name>Групова първична извънболнична стоматологична практика</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>true</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>121</Code>
+    <Name>Индивидуална специализирана извънболнична медицинска практика</Name>
+    <IsIndividual>true</IsIndividual>
+    <CanPublish>true</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>122</Code>
+    <Name>Индивидуална специализирана извънболнична стоматологична практика</Name>
+    <IsIndividual>true</IsIndividual>
+    <CanPublish>true</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>123</Code>
+    <Name>Групова специализирана извънболнична медицинска практика</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>true</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>124</Code>
+    <Name>Групова специализирана извънболнична стоматологична практика</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>true</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>132</Code>
+    <Name>Стоматологичен център</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>true</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>133</Code>
+    <Name>Медико-стоматологичен център</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>true</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>131</Code>
+    <Name>Медицински център</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>true</CanPublish>
+    <CanConsume>true</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>161</Code>
+    <Name>Индивидуална първична извънболнична медицинска практика към Министерство на правосъдието</Name>
+    <IsIndividual>true</IsIndividual>
+    <CanPublish>true</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>162</Code>
+    <Name>Индивидуална първична извънболнична стоматологична практика към Министерство на правосъдието</Name>
+    <IsIndividual>true</IsIndividual>
+    <CanPublish>true</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>163</Code>
+    <Name>Специализирана извънболнична медицинска практика към Министерство на правосъдието</Name>
+    <IsIndividual>true</IsIndividual>
+    <CanPublish>true</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>211</Code>
+    <Name>Болница за активно лечение - многопрофилна</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>212</Code>
+    <Name>Болница за активно лечение - специализирана</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>213</Code>
+    <Name>Болница за активно лечение - специализирана ,  филиал</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>214</Code>
+    <Name>Болница за активно лечение - национална , специализирана</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>221</Code>
+    <Name>Болница за долекуване - многопрофилна</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>222</Code>
+    <Name>Болница за долекуване - специализирана</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>223</Code>
+    <Name>Болница за долекуване - специализирана , филиал</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>224</Code>
+    <Name>Болница за долекуване - национална , специализирана</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>231</Code>
+    <Name>Болница за рехабилитация - многопрофилна</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>232</Code>
+    <Name>Болница за рехабилитация - специализирана</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>233</Code>
+    <Name>Болница за рехабилитация - специализирана , филиал</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>234</Code>
+    <Name>Болница за рехабилитация - национална , специализирана</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>241</Code>
+    <Name>Психитрична болница - национална</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>242</Code>
+    <Name>Психитрична болница - специализирана</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>243</Code>
+    <Name>Психитрична болница - специализирана , филиал</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>244</Code>
+    <Name>Психитрична болница - национална , специализирана</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>331</Code>
+    <Name>Диспансер - психични заболявания</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>332</Code>
+    <Name>Диспансер - пневмофтизиататричен</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>333</Code>
+    <Name>Диспансер - кожновенерологичен</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>334</Code>
+    <Name>Диспансер - онкологичен</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>134</Code>
+    <Name>Диагностично-консултативен център</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>true</CanPublish>
+    <CanConsume>true</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>146</Code>
+    <Name>Национален център по проблемите на общественото здраве</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>340</Code>
+    <Name>Дом за медико-социални грижи за деца</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>351</Code>
+    <Name>Хоспис</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>411</Code>
+    <Name>Аптека</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>621</Code>
+    <Name>Дом за деца или младежи с увреждания</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>622</Code>
+    <Name>Дом за възрастни хора с увреждания</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>623</Code>
+    <Name>Социално учебно-професионално заведение</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>625</Code>
+    <Name>Дом за стари хора</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>626</Code>
+    <Name>Дом за временно настаняване</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>711</Code>
+    <Name>Медицинска служба на части и подразделения на МО и МВР</Name>
+    <IsIndividual>false</IsIndividual>
+    <CanPublish>false</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+  <PracticeType>
+    <Code>111</Code>
+    <Name>Индивидуална първична извънболнична медицинска практика</Name>
+    <IsIndividual>true</IsIndividual>
+    <CanPublish>true</CanPublish>
+    <CanConsume>false</CanConsume>
+  </PracticeType>
+</PracticeTypes>
