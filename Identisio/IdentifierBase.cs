@@ -13,7 +13,7 @@ namespace Skyware.Identisio
     {
 
         /// <summary>
-        /// By design the IdentifierBase class and its ancestors are not meant to be instantiated. They are immutable.
+        /// By design the IdentifierBase class and its ancestors are not meant to be instantiated directly. They are immutable.
         /// </summary>
         protected IdentifierBase() { }
 
@@ -28,17 +28,19 @@ namespace Skyware.Identisio
         public abstract string Name { get; }
 
         /// <summary>
-        /// Abbreviation in the native language such as 'SSN', 'ЕГН', etc.
+        /// Abbreviation in the native language
+        /// Examples: 'SSN', 'ЕГН', etc.
         /// </summary>
         public abstract string NativeAbbreviation { get; }
 
         /// <summary>
         /// Name according to the native language and regulation
+        /// Examples: "Единен граждански номер", "Social Security Number", etc.
         /// </summary>
         public abstract string NativeName { get; }
 
         /// <summary>
-        /// GDPR or equivalent regulation flag
+        /// GDPR, HIPPA or equivalent regulation flag
         /// </summary>
         public abstract bool IsPrivateData { get; }
 

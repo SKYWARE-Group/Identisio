@@ -20,6 +20,12 @@ namespace Identisio.UnitTests.Personal
         }
 
         [Test()]
+        public void EgnParseErr()
+        {
+            Assert.Throws<ArgumentException>(() => Egn.Parse("6101137509"));
+        }
+
+        [Test()]
         public void EgnValidate()
         {
             var egnValid = Egn.Validate("6101057509");

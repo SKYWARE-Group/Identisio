@@ -20,11 +20,18 @@ namespace Identisio.UnitTests.Personal
         }
 
         [Test()]
+        public void YuPidParseErr()
+        {
+            Assert.Throws<ArgumentOutOfRangeException>(() => YuPid.Parse("0113006500006"));
+        }
+
+        [Test()]
         public void YuPidValidation()
         {
             var yuPidValid = YuPid.Validate("0101006500006");
             Assert.IsTrue(yuPidValid);
         }
+
 
     }
 }

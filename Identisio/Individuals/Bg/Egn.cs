@@ -7,7 +7,8 @@ namespace Skyware.Identisio.Individuals.Bg
 {
 
     /// <summary>
-    /// EGN (ЕГН) is the identification code for all Bulgarian citizens
+    /// EGN (ЕГН) is the identifier for native Bulgarian citizens
+    /// Issuer: GRAO (ГРАО)
     /// </summary>
     public class Egn : IdentifierBase, IEncodesGender, IEncodesBirthdate
     {
