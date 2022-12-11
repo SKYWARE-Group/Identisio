@@ -6,16 +6,16 @@ namespace Skyware.Identisio.Individuals.Bg
 {
 
     /// <summary>
-    /// UIN (УИН) are identifiers for doctors in bulgaria and are issued by BMA (БЛС)
+    /// UIN (УИН) are identifiers for doctors in Bulgaria and are issued by BMA (БЛС)
     /// </summary>
     public class Uin : IdentifierBase
     {
 
-        public override string Name => "Unique idenifier of a docotr";
+        public override string Name => "Unique identifier of a doctor";
 
         public override string NativeAbbreviation => "УИН";
 
-        public override string NativeName => "Уникален идентификцаионен номер на лекар";
+        public override string NativeName => "Уникален идентификационен номер на лекар";
 
         public override bool IsPrivateData => false;
 

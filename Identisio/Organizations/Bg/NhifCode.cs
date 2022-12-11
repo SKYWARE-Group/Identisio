@@ -6,7 +6,7 @@ namespace Skyware.Identisio.Organizations.Bg
 {
 
     /// <summary>
-    /// Identifer for branches of health institutions in Bulgaria
+    /// Identifier for branches of health institutions in Bulgaria
     /// </summary>
     public class NhifCode : IdentifierBase
     {

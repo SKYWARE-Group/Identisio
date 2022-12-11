@@ -13,7 +13,7 @@ namespace Skyware.Identisio
     {
 
         /// <summary>
-        /// By design the IdentifierBase class and its ancesstors are not meant to be instantiated. They are immutable.
+        /// By design the IdentifierBase class and its ancestors are not meant to be instantiated. They are immutable.
         /// </summary>
         protected IdentifierBase() { }
 
@@ -38,7 +38,7 @@ namespace Skyware.Identisio
         public abstract string NativeName { get; }
 
         /// <summary>
-        /// GDPR or equivalent egulation flag
+        /// GDPR or equivalent regulation flag
         /// </summary>
         public abstract bool IsPrivateData { get; }
 

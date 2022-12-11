@@ -6,7 +6,7 @@ namespace Skyware.Identisio.Organizations.Bg
 {
 
     /// <summary>
-    /// RZI (РЗИ) codes are identifiers for helath institutions in Bulgaria
+    /// RZI (РЗИ) codes are identifiers for health institutions in Bulgaria
     /// </summary>
     public class Rzi : IdentifierBase
     {

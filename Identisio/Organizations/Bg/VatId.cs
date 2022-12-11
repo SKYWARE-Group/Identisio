@@ -6,7 +6,7 @@ namespace Skyware.Identisio.Organizations.Bg
 {
 
     /// <summary>
-    /// VAT code of Bulgarian legal entities (compatable with EU VAT numbers)
+    /// VAT code of Bulgarian legal entities (compatible with EU VAT numbers)
     /// </summary>
     public class VatId : IdentifierBase
     {

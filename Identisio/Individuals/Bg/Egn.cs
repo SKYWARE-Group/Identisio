@@ -7,7 +7,7 @@ namespace Skyware.Identisio.Individuals.Bg
 {
 
     /// <summary>
-    /// EGN (ЕГН) is the identification code for all bulgarian citizens
+    /// EGN (ЕГН) is the identification code for all Bulgarian citizens
     /// </summary>
     public class Egn : IdentifierBase, IEncodesGender, IEncodesBirthdate
     {
@@ -50,7 +50,7 @@ namespace Skyware.Identisio.Individuals.Bg
 
         #region Actions
 
-        // Creation
+        // Instantiation
 
         public static Egn Parse(string value)
         {
