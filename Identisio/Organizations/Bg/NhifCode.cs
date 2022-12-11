@@ -21,6 +21,11 @@ namespace Skyware.Identisio.Organizations.Bg
 
         //TODO: implement Parse
 
+        // AABBCCCDDD
+        // AA - Област, 01-28
+        // НЕЩО СПЕЦИАЛНО 80-82
+        // CCC - Вид ЛЗ
+        // DDD - Пореден номер - 001 - 999
 
     }
 

@@ -43,12 +43,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Content Include="Resources\Bg\practice-types.xml">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
-		<Content Include="Resources\Bg\regions.xml">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
+		<EmbeddedResource Include="Resources\Bg\practice-types.xml">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<EmbeddedResource Include="Resources\Bg\regions.xml">
+			<CopyToOutputDirectory>Never</CopyToOutputDirectory>
+		</EmbeddedResource>
 	</ItemGroup>
 
 </Project>

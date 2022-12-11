@@ -21,6 +21,17 @@ namespace Skyware.Identisio.Organizations.Bg
         //TODO: implement Parse
 
 
+        // AABBCCCDDD
+        // AA - Област, 01-28
+        // BB - Община,
+        // CCC - Вид ЛЗ
+        // DDD - Пореден номер - 001 - 999
+
+        //ResourcesBg.regions.xml
+        //using (var rdrReg = embeddedProvider.GetFileInfo("EmbeddedResources.regions.xml").CreateReadStream())
+        //_Regions = XmlUtils.GetObject<Region[]>(rdrReg);
+
+
     }
 
 }
