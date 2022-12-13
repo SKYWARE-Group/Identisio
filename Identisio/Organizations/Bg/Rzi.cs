@@ -10,6 +10,8 @@ namespace Skyware.Identisio.Organizations.Bg
     /// </summary>
     public class Rzi : IdentifierBase
     {
+        #region Props
+
         public override string Name => "Region Health Inspection Code";
 
         public override string NativeAbbreviation => "РЗИ";
@@ -17,6 +19,8 @@ namespace Skyware.Identisio.Organizations.Bg
         public override string NativeName => "РЗИ код";
 
         public override bool IsPrivateData => false;
+
+        #endregion
 
         //TODO: implement Parse
 
