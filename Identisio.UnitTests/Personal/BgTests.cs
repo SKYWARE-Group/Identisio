@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using Skyware.Identisio.Individuals.Bg;
+using Skyware.Identisio.Organizations.Bg;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,5 +40,11 @@ namespace Identisio.UnitTests.Personal
             Assert.IsTrue(isLnchValid);
         }
 
+        [Test()]
+        public void RziParse()
+        {
+            var isRziValid = Rzi.Validate("0604221001");
+            Assert.IsTrue(isRziValid);
+        }
     }
 }
