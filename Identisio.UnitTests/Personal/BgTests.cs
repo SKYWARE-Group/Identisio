@@ -41,10 +41,12 @@ namespace Identisio.UnitTests.Personal
         }
 
         [Test()]
-        public void RziParse()
+        public void RziValidate()
         {
             var isRziValid = Rzi.Validate("0604221001");
+            var isRziInvalid = Rzi.Validate("0604100001");
             Assert.IsTrue(isRziValid);
+            Assert.IsFalse(isRziInvalid);
         }
     }
 }
