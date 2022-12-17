@@ -1,4 +1,5 @@
-﻿using Skyware.Identisio.Model.Resources.Bg;
+﻿using Microsoft.Extensions.FileProviders;
+using Skyware.Identisio.Model.Resources.Bg;
 using Skyware.Identisio.Utils;
 using System;
 using System.Collections.Generic;
@@ -27,8 +28,9 @@ namespace Skyware.Identisio.Organizations.Bg
     {
         #region Fields
 
-        private static readonly string _RziRegex = @"^(0[1-9]|1[0-9]|2[0-8])(\d{2})(\d{3})(\d{3})$";
-        private static readonly Regex _Regex = new Regex(_RziRegex);
+        private static readonly string _rziRegex = @"^(0[1-9]|1[0-9]|2[0-8])(\d{2})(\d{3})(\d{3})$";
+        private static readonly Regex _regex = new Regex(_rziRegex);
+        private static EmbeddedFileProvider _embeddedProvider = new EmbeddedFileProvider(Assembly.GetExecutingAssembly());
 
         #endregion
 
@@ -49,30 +51,26 @@ namespace Skyware.Identisio.Organizations.Bg
         public static new bool Validate(string inputRzi)
         {
             if (string.IsNullOrWhiteSpace(inputRzi)) return false;
-            if (!_Regex.IsMatch(inputRzi.Trim())) return false;
-            if (!isValidRegion(_Regex.Match(inputRzi.Trim()).Groups[2].Value)) return false;
-            if (!IsValidInstitution(_Regex.Match(inputRzi.Trim()).Groups[3].Value)) return false;
+            if (!_regex.IsMatch(inputRzi.Trim())) return false;
+            if (!isValidRegion(_regex.Match(inputRzi.Trim()).Groups[2].Value)) return false;
+            if (!IsValidInstitution(_regex.Match(inputRzi.Trim()).Groups[3].Value)) return false;
             return true;
         }
 
         private static bool IsValidInstitution(string value)
         {
-            if ((!File.Exists("../../../../Identisio/Resources/Bg/practice-Types.xml")))
-                throw new ArgumentException();
-            using (var fileContent = File.OpenRead("../../../../Identisio/Resources/Bg/practice-types.xml"))
+            using (var rdrReg = _embeddedProvider.GetFileInfo("Resources\\Bg\\practice-types.xml").CreateReadStream())
             {
-                var institutions = XmlUtils.GetObject<HealthInstitutions>(fileContent);
+                var institutions = XmlUtils.GetObject<HealthInstitutions>(rdrReg);
                 return institutions.Institutions.Any(x => x.Code.Equals(value, StringComparison.CurrentCultureIgnoreCase));
             }
         }
 
         private static bool isValidRegion(string value)
         {
-            if ((!File.Exists("../../../../Identisio/Resources/Bg/regions.xml")))
-                throw new ArgumentException();
-            using (var fileContent = File.OpenRead("../../../../Identisio/Resources/Bg/regions.xml"))
+            using (var rdrReg = _embeddedProvider.GetFileInfo("Resources\\Bg\\regions.xml").CreateReadStream())
             {
-                var regions = XmlUtils.GetObject<HealthRegions>(fileContent);
+                var regions = XmlUtils.GetObject<HealthRegions>(rdrReg);
                 return regions.Regions.Any(x => x.Code.Equals(value, StringComparison.CurrentCultureIgnoreCase));
             }
         }
