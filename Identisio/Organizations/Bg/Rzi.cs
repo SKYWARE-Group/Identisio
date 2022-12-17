@@ -30,7 +30,6 @@ namespace Skyware.Identisio.Organizations.Bg
 
         private static readonly string _rziRegex = @"^(0[1-9]|1[0-9]|2[0-8])(\d{2})(\d{3})(\d{3})$";
         private static readonly Regex _regex = new Regex(_rziRegex);
-        private static EmbeddedFileProvider _embeddedProvider = new EmbeddedFileProvider(Assembly.GetExecutingAssembly());
 
         #endregion
 
@@ -52,27 +51,19 @@ namespace Skyware.Identisio.Organizations.Bg
         {
             if (string.IsNullOrWhiteSpace(inputRzi)) return false;
             if (!_regex.IsMatch(inputRzi.Trim())) return false;
-            if (!isValidRegion(_regex.Match(inputRzi.Trim()).Groups[2].Value)) return false;
-            if (!IsValidInstitution(_regex.Match(inputRzi.Trim()).Groups[3].Value)) return false;
+            if (!isValidRegion(_regex.Match(inputRzi.Trim()).Groups[2].Value, EmbeddedCollections.Instance)) return false;
+            if (!IsValidInstitution(_regex.Match(inputRzi.Trim()).Groups[3].Value, EmbeddedCollections.Instance)) return false;
             return true;
         }
 
-        private static bool IsValidInstitution(string value)
+        private static bool IsValidInstitution(string value, EmbeddedCollections _embeddedCollections)
         {
-            using (var rdrReg = _embeddedProvider.GetFileInfo("Resources\\Bg\\practice-types.xml").CreateReadStream())
-            {
-                var institutions = XmlUtils.GetObject<HealthInstitutions>(rdrReg);
-                return institutions.Institutions.Any(x => x.Code.Equals(value, StringComparison.CurrentCultureIgnoreCase));
-            }
+            return _embeddedCollections.EmbeddedInstitutions.Institutions.Any(x => x.Code.Equals(value, StringComparison.CurrentCultureIgnoreCase));
         }
 
-        private static bool isValidRegion(string value)
+        private static bool isValidRegion(string value, EmbeddedCollections _embeddedCollections)
         {
-            using (var rdrReg = _embeddedProvider.GetFileInfo("Resources\\Bg\\regions.xml").CreateReadStream())
-            {
-                var regions = XmlUtils.GetObject<HealthRegions>(rdrReg);
-                return regions.Regions.Any(x => x.Code.Equals(value, StringComparison.CurrentCultureIgnoreCase));
-            }
+            return _embeddedCollections.EmbeddedRegions.Regions.Any(x => x.Code.Equals(value, StringComparison.CurrentCultureIgnoreCase));
         }
 
         #endregion
