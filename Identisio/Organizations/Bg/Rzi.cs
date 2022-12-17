@@ -56,14 +56,14 @@ namespace Skyware.Identisio.Organizations.Bg
             return true;
         }
 
-        private static bool IsValidInstitution(string value, EmbeddedCollections _embeddedCollections)
+        private static bool IsValidInstitution(string value, EmbeddedCollections embedded)
         {
-            return _embeddedCollections.EmbeddedInstitutions.Institutions.Any(x => x.Code.Equals(value, StringComparison.CurrentCultureIgnoreCase));
+            return embedded.EmbeddedInstitutions.Institutions.Any(x => x.Code.Equals(value, StringComparison.CurrentCultureIgnoreCase));
         }
 
-        private static bool isValidRegion(string value, EmbeddedCollections _embeddedCollections)
+        private static bool isValidRegion(string value, EmbeddedCollections embedded)
         {
-            return _embeddedCollections.EmbeddedRegions.Regions.Any(x => x.Code.Equals(value, StringComparison.CurrentCultureIgnoreCase));
+            return embedded.EmbeddedRegions.Regions.Any(x => x.Code.Equals(value, StringComparison.CurrentCultureIgnoreCase));
         }
 
         #endregion
