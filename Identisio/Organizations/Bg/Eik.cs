@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Skyware.Identisio.Organizations.Bg
 {
@@ -10,6 +11,21 @@ namespace Skyware.Identisio.Organizations.Bg
     /// </summary>
     public class Eik : IdentifierBase
     {
+        #region Fields
+        private static readonly string _EgnRegex = @"^\d{9}$|^\d{13}$";
+        private static readonly Regex _Regex = new Regex(_EgnRegex);
+        private static readonly int[] _First13DigitsSum = { 2, 7, 3, 5 };
+        private static readonly int[] _Second13DigitsSum = { 4, 9, 5, 7 };
+        #endregion
+
+        #region Constructors
+        private Eik(string eikValue)
+        {
+            Value = eikValue;
+        }
+        #endregion
+
+        #region Props
         public override string Name => "Unified Identification Code";
 
         public override string NativeAbbreviation => "ЕИК";
@@ -17,8 +33,107 @@ namespace Skyware.Identisio.Organizations.Bg
         public override string NativeName => "Единен идентификационен код";
 
         public override bool IsPrivateData => false;
+        #endregion
 
         //TODO: implement Validate
+        #region Actions
+        public new static bool Validate(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value))
+                return false;
+            if (!_Regex.IsMatch(value.Trim()))
+                return false;
+            if (!Sum(value))
+                return false;
+            return true;
+
+        }
+        public static bool Sum(string value)
+        {
+            if (value.Length == 9)
+                return SumNine(value);
+            else
+                return SumThirteen(value);
+
+
+        }
+        public static bool SumNine(string value)
+        {
+            int sum = 0;
+            for (int i = 0; i < 8; i++)
+            {
+                sum += (i+1) * int.Parse(value[i].ToString());
+            }
+            if (sum % 11 != 10)
+            {
+                if (sum % 11 == int.Parse(value[8].ToString()))
+                    return true;
+                else
+                    return false;
+            }
+
+            int secondSum = 0;
+            for (int i = 0; i < 8; i++)
+            {
+                secondSum += (i+3) * int.Parse(value[i].ToString());
+            }
+
+            if (secondSum % 11 != 10)
+            {
+                if (secondSum % 11 == int.Parse(value[8].ToString()))
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                if (int.Parse(value[8].ToString()) == 0)
+                    return true;
+                else
+                    return false;
+            }
+
+        }
+
+        public static bool SumThirteen(string value)
+        {
+            if (!SumNine(value))
+                return false;
+
+            int sum = 0;
+            for (int i = 8, j = 0; i < 12; i++, j++)
+            {
+                sum += _First13DigitsSum[j] * int.Parse(value[i].ToString());
+            }
+            if (sum % 11 != 10)
+            {
+                if (sum % 11 == int.Parse(value[12].ToString()))
+                    return true;
+                else
+                    return false;
+            }
+
+            int secondSum = 0;
+            for (int i = 8, j = 0; i < 12; i++, j++)
+            {
+                secondSum += _Second13DigitsSum[j] * int.Parse(value[i].ToString());
+            }
+            if (secondSum % 11 != 10)
+            {
+                if (secondSum % 11 == int.Parse(value[12].ToString()))
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                if (int.Parse(value[12].ToString()) == 0)
+                    return true;
+                else
+                    return false;
+            }
+        }
+        #endregion
 
     }
 
