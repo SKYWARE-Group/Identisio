@@ -1,5 +1,6 @@
 ﻿using NUnit.Framework;
 using Skyware.Identisio.Individuals.Bg;
+using Skyware.Identisio.Organizations.Bg;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,6 +38,15 @@ namespace Identisio.UnitTests.Personal
         {
             var isLnchValid = Lnch.Validate("0777180969");
             Assert.IsTrue(isLnchValid);
+        }
+
+        [Test()]
+        public void NhivValidate()
+        {
+            var isNhivValid = NhifCode.Validate("2890221002");
+            var isNhivInvalid = NhifCode.Validate("0604100001");
+            Assert.IsTrue(isNhivValid);
+            Assert.IsFalse(isNhivInvalid);
         }
 
     }
