@@ -1,5 +1,8 @@
 # <img src="Identisio/Assets/identisio-icon.png" height="28"> Identisio
 
+[![Nuget Badge](https://img.shields.io/nuget/v/Skyware.Identisio)](https://www.nuget.org/packages/Skyware.Identisio)
+![Nuget Badge](https://img.shields.io/github/actions/workflow/status/SKYWARE-Group/Identisio/dotnet.yml)
+
 This project is an attempt to build parsing and validation library for a variety of identifiers, such as IBAN, Vat numbers, etc.
 
 ## Usage
