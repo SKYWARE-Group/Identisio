@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 using System.Xml;
 using System.Xml.Linq;
 using System.Xml.XPath;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Skyware.Identisio.Organizations.Bg
 {
@@ -21,7 +22,7 @@ namespace Skyware.Identisio.Organizations.Bg
     /// AABBCCCDDD
     /// AA - Област, 01-28 
     /// BB - Община,
-    /// CCC - Вид ЛЗ - done
+    /// CCC - Вид ЛЗ 
     /// DDD - Пореден номер - 001 - 999 
     /// </summary>
     public class Rzi : IdentifierBase
@@ -33,6 +34,19 @@ namespace Skyware.Identisio.Organizations.Bg
 
         #endregion
 
+        #region Constructors
+
+        public Rzi(int region, int healthRegion, int insitutionType, int insitutionNumber)
+        {
+            this.Region = region;
+            this.HealthRegion = healthRegion;
+            this.InstitutionType = insitutionType;
+            this.InstitutionNumber = insitutionNumber;
+        }
+
+        #endregion
+
+
         #region Props
 
         public override string Name => "Region Health Inspection Code";
@@ -42,17 +56,39 @@ namespace Skyware.Identisio.Organizations.Bg
         public override string NativeName => "РЗИ код";
 
         public override bool IsPrivateData => false;
+        
+        public int Region { get; set; }
+
+        public int HealthRegion { get; set; }
+
+        public int InstitutionType { get; set; }
+        
+        public int InstitutionNumber { get; set; }
 
         #endregion
 
         #region Actions
 
-        public static new bool Validate(string inputRzi)
+        public static Rzi Parse(string value)
         {
-            if (string.IsNullOrWhiteSpace(inputRzi)) return false;
-            if (!_regex.IsMatch(inputRzi.Trim())) return false;
-            if (!isValidRegion(_regex.Match(inputRzi.Trim()).Groups[2].Value, EmbeddedCollections.Instance)) return false;
-            if (!IsValidInstitution(_regex.Match(inputRzi.Trim()).Groups[3].Value, EmbeddedCollections.Instance)) return false;
+            if (!Validate(value)) throw new ArgumentException(nameof(value), $"Invalid {nameof(Rzi)} format");
+
+            var match = _regex.Match(value.Trim());
+            
+            var region = int.Parse(match.Groups[1].Value);
+            var healthRegion = int.Parse(match.Groups[2].Value);
+            var institutionType = int.Parse(match.Groups[3].Value);
+            var institutionNumber = int.Parse(match.Groups[4].Value);
+
+            return new Rzi(region, healthRegion, institutionType, institutionNumber);
+        }
+
+        public static new bool Validate(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value)) return false;
+            if (!_regex.IsMatch(value.Trim())) return false;
+            if (!isValidRegion(_regex.Match(value.Trim()).Groups[2].Value, EmbeddedCollections.Instance)) return false;
+            if (!IsValidInstitution(_regex.Match(value.Trim()).Groups[3].Value, EmbeddedCollections.Instance)) return false;
             return true;
         }
 

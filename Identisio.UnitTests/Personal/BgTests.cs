@@ -41,10 +41,27 @@ namespace Identisio.UnitTests.Personal
         }
 
         [Test()]
+        public void RziParse()
+        {
+            var rzi = Rzi.Parse("0604221001");
+            Assert.AreEqual(rzi.Region, 6);
+            Assert.AreEqual(rzi.HealthRegion, 4);
+            Assert.AreEqual(rzi.InstitutionType, 221);
+            Assert.AreEqual(rzi.InstitutionNumber, 1);
+        }
+
+        [Test()]
+        public void RziParseErr()
+        {
+            Assert.Throws<ArgumentException>(() => Rzi.Parse("0604100001"));
+        }
+
+        [Test()]
         public void RziValidate()
         {
             var isRziValid = Rzi.Validate("0604221001");
             var isRziInvalid = Rzi.Validate("0604100001");
+
             Assert.IsTrue(isRziValid);
             Assert.IsFalse(isRziInvalid);
         }
