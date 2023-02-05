@@ -17,5 +17,6 @@ namespace Skyware.Identisio.Model.Resources.Bg
     {
         public string Name { get; set; }
         public string Code { get; set; }
+        public HealthMunicipality Municipality { get; set; }
     }
 }

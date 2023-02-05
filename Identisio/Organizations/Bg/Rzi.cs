@@ -36,10 +36,10 @@ namespace Skyware.Identisio.Organizations.Bg
 
         #region Constructors
 
-        public Rzi(int region, int healthRegion, int insitutionType, int insitutionNumber)
+        public Rzi(int region, int muncipality, int insitutionType, int insitutionNumber)
         {
             this.Region = region;
-            this.HealthRegion = healthRegion;
+            this.Municipality = muncipality;
             this.InstitutionType = insitutionType;
             this.InstitutionNumber = insitutionNumber;
         }
@@ -59,7 +59,7 @@ namespace Skyware.Identisio.Organizations.Bg
         
         public int Region { get; set; }
 
-        public int HealthRegion { get; set; }
+        public int Municipality { get; set; }
 
         public int InstitutionType { get; set; }
         
@@ -87,19 +87,25 @@ namespace Skyware.Identisio.Organizations.Bg
         {
             if (string.IsNullOrWhiteSpace(value)) return false;
             if (!_regex.IsMatch(value.Trim())) return false;
-            if (!isValidRegion(_regex.Match(value.Trim()).Groups[2].Value, EmbeddedCollections.Instance)) return false;
+            if (!isValidMunicipality(_regex.Match(value.Trim()).Groups[2].Value, EmbeddedCollections.Instance)) return false;
             if (!IsValidInstitution(_regex.Match(value.Trim()).Groups[3].Value, EmbeddedCollections.Instance)) return false;
             return true;
         }
 
         private static bool IsValidInstitution(string value, EmbeddedCollections embedded)
         {
-            return embedded.EmbeddedInstitutions.Institutions.Any(x => x.Code.Equals(value, StringComparison.CurrentCultureIgnoreCase));
+            return embedded
+                .EmbeddedInstitutions
+                .Institutions
+                .Any(x => x.Code.Equals(value, StringComparison.CurrentCultureIgnoreCase));
         }
 
-        private static bool isValidRegion(string value, EmbeddedCollections embedded)
+        private static bool isValidMunicipality(string value, EmbeddedCollections embedded)
         {
-            return embedded.EmbeddedRegions.Regions.Any(x => x.Code.Equals(value, StringComparison.CurrentCultureIgnoreCase));
+            return embedded
+                .EmbeddedRegions
+                .Regions
+                .Any(x => x.Municipality.Code.Equals(value, StringComparison.CurrentCultureIgnoreCase));
         }
 
         #endregion

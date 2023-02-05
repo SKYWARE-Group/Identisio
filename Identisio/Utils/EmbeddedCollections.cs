@@ -32,6 +32,7 @@ namespace Skyware.Identisio.Utils
             {
                 EmbeddedInstitutions = XmlUtils.GetObject<HealthInstitutions>(institutionsRead);
                 EmbeddedRegions = XmlUtils.GetObject<HealthRegions>(regionsRead);
+                
             }
         }
     }

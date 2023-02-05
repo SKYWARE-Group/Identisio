@@ -45,7 +45,7 @@ namespace Identisio.UnitTests.Personal
         {
             var rzi = Rzi.Parse("0604221001");
             Assert.AreEqual(rzi.Region, 6);
-            Assert.AreEqual(rzi.HealthRegion, 4);
+            Assert.AreEqual(rzi.Municipality, 4);
             Assert.AreEqual(rzi.InstitutionType, 221);
             Assert.AreEqual(rzi.InstitutionNumber, 1);
         }
