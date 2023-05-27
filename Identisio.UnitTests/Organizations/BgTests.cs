@@ -10,19 +10,27 @@ namespace Identisio.UnitTests.Organizations
 {
     public class BgTests
     {
-
-        [TestCase("121708719")]
-        [TestCase("202557570")]              
-        [TestCase("1751162860016")]
-        [TestCase("1751162861128")]
-        [TestCase("1217087192000")]
+        /// <summary>
+        /// Valid Eik tests
+        /// </summary>
+        /// <param name="eik"></param>
+        [TestCase("121708719")]       //Company - "Pension Insurance Company UBB"
+        [TestCase("831447150")]       //Company - "CENTRAL COOPERATIVE BANK"
+        [TestCase("1751162860016")]   //Branch of a company - "Opticom Ltd."
+        [TestCase("1751162861128")]   //Branch of a company - "Opticom Ltd."
+        [TestCase("1217087192000")]   //Branch of a company - "Pension Insurance Company UBB"
         public void EikValidateTrue(string eik)
         {
             var eikValidate = Eik.Validate(eik);
             Assert.That(eikValidate, Is.True);
         }
+
+        /// <summary>
+        /// Invalid Eik tests
+        /// </summary>
+        /// <param name="eik"></param>
         [TestCase("")]
-        [TestCase("20255757")]
+        [TestCase("20255757")]  
         [TestCase("121708729")] 
         [TestCase("175116280")]
         [TestCase("202557571")]
