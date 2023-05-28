@@ -1,10 +1,5 @@
 ﻿using NUnit.Framework;
 using Skyware.Identisio.Organizations.Bg;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Identisio.UnitTests.Organizations
 {
@@ -35,6 +30,50 @@ namespace Identisio.UnitTests.Organizations
             var eikValidate = Eik.Validate(eik);
             Assert.That(eikValidate, Is.False);
         }
-       
+
+        [TestCase("2201111356")]
+        [TestCase("0111913001")]
+        [TestCase("1516111999")]
+        public void RziValidateTrue(string rziCode)
+        {
+            var rziResult = Rzi.Validate(rziCode);
+            Assert.That(rziResult, Is.True);
+        }
+
+        [TestCase(null)]
+        [TestCase("")]
+        [TestCase("1516111")]
+        [TestCase("2201111000")]
+        [TestCase("AAAAAAAAAA")]
+        [TestCase("2245111356")]
+        [TestCase("9910913001")]
+        public void RziValidateFalse(string rziCode)
+        {
+            var rziResult = Rzi.Validate(rziCode);
+            Assert.That(rziResult, Is.False);
+        }
+
+
+        [TestCase("2280111356")]
+        [TestCase("0181913001")]
+        [TestCase("1582111999")]
+        public void NhifValidateTrue(string rziCode)
+        {
+            var rziResult = NhifCode.Validate(rziCode);
+            Assert.That(rziResult, Is.True);
+        }
+
+        [TestCase(null)]
+        [TestCase("")]
+        [TestCase("1516111")]
+        [TestCase("2201111000")]
+        [TestCase("AAAAAAAAAA")]
+        [TestCase("2283111356")]
+        [TestCase("9981913001")]
+        public void NhifValidateFalse(string rziCode)
+        {
+            var rziResult = NhifCode.Validate(rziCode);
+            Assert.That(rziResult, Is.False);
+        }
     }
 }
