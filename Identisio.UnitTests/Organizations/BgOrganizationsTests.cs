@@ -5,7 +5,7 @@ using Skyware.Identisio.Organizations.Bg;
 
 namespace Identisio.UnitTests.Organizations;
 
-public class BgTests
+public class BgOrganizationsTests
 {
 
 
@@ -42,13 +42,19 @@ public class BgTests
     #region RZI
 
 
-    [TestCase("2201111356")]
-    [TestCase("0111913001")]
-    [TestCase("1516111999")]
-    public void RziValidateTrue(string value)
+    [TestCase("0213141001", "Бургас", "23", "Царево", "14", 1, "141")] // Медико-Диагностична Лаборатория
+    [TestCase("0290111234", "Бургас", "23", "", "90", 234, "111")] // Индивидуална първична извънболнична медицинска практика
+    [TestCase("0204211032", "Бургас", "22", "Бургас", "04", 32, "211")] // Болница за активно лечение - многопрофилна
+    [TestCase("2490141001", "Стара Загора", "24", "", "90", 1, "141")] // Медико-Диагностична Лаборатория
+    public void RziPositiveTests(string value, string region, string regionCode, string municipality, string municipalityCode, int serial, string practiceType)
     {
-        var result = Rzi.Validate(value);
-        Assert.That(result, Is.True);
+        Rzi result = Rzi.Parse(value);
+        Assert.That(result.RegionName.Equals(region));
+        Assert.That(result.RegionCode.Equals(regionCode));
+        Assert.That(result.MunicipalityOrSpecialName.Equals(municipality));
+        Assert.That(result.MunicipalityOrSpecialCode.Equals(municipalityCode));
+        Assert.That(result.PracticeType.Equals(practiceType));
+        Assert.That(result.Serial.Equals(serial));
     }
 
     [TestCase(null)]
@@ -58,7 +64,7 @@ public class BgTests
     [TestCase("AAAAAAAAAA")]
     [TestCase("2245111356")]
     [TestCase("9910913001")]
-    public void RziValidateFalse(string value)
+    public void RziNegativeTests(string value)
     {
         var rziResult = Rzi.Validate(value);
         Assert.That(rziResult, Is.False);

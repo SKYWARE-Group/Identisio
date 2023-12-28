@@ -22,7 +22,7 @@ public abstract class PracticeIdentifier : RegionalIdentifier
 
     public string MunicipalityOrSpecialName { get; private set; }
 
-    public int PracticeType { get; private set; }
+    public string PracticeType { get; private set; }
 
     public int Serial { get; private set; }
 
