@@ -14,7 +14,7 @@ public abstract class PracticeIdentifier : RegionalIdentifier
     /// <summary>
     /// These are applicable values instead of municipality code.
     /// </summary>
-    protected static string[] SPECIAL_CODES = ["80", "81", "82", "90", "99"];
+    protected static string[] SPECIAL_CODES = ["80", "81", "82", "90", "99"]; // Check if 81, 82 and 99 are valid
 
     private static IEnumerable<PracticeType> _practiceTypes;
 
@@ -22,7 +22,7 @@ public abstract class PracticeIdentifier : RegionalIdentifier
 
     public string MunicipalityOrSpecialName { get; private set; }
 
-    public string PracticeType { get; private set; }
+    public string PracticeTypeCode { get; private set; }
 
     public int Serial { get; private set; }
 

@@ -53,7 +53,7 @@ public class BgOrganizationsTests
         Assert.That(result.RegionCode.Equals(regionCode));
         Assert.That(result.MunicipalityOrSpecialName.Equals(municipality));
         Assert.That(result.MunicipalityOrSpecialCode.Equals(municipalityCode));
-        Assert.That(result.PracticeType.Equals(practiceType));
+        Assert.That(result.PracticeTypeCode.Equals(practiceType));
         Assert.That(result.Serial.Equals(serial));
     }
 
