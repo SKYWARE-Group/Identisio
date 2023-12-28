@@ -1,4 +1,5 @@
 ﻿using System;
+using Skyware.Identisio.Bg;
 
 namespace Skyware.Identisio.Organizations.Bg;
 
@@ -14,7 +15,7 @@ namespace Skyware.Identisio.Organizations.Bg;
 /// CCC - Type of practice (Вид ЛЗ) <br/>
 /// DDD - Sequential number (Пореден номер), 001 - 999 <br/>
 /// </remarks>
-public class NhifCode : BgMedicalIdentifier
+public class NhifCode : PracticeIdentifier
 {
 
     public override string Name => "NHIF code (НЗОК номер)";
@@ -24,12 +25,6 @@ public class NhifCode : BgMedicalIdentifier
     public override string NativeName => "НЗОК номер";
 
     public override bool IsPrivateData => false;
-
-    private NhifCode(int region, int specialCode, int practice, int serial)
-        : base(region, practice, serial)
-    {
-        SpecialCode = specialCode;
-    }
 
     #region Props
 
@@ -43,7 +38,7 @@ public class NhifCode : BgMedicalIdentifier
     {
         if (value?.Length != 10) return false;
 
-        TryInitializePrerequisites();
+        InitializeSets();
 
         string regionCode = value.Substring(0, 2);
         string specialCode = value.Substring(2, 2);
@@ -61,7 +56,7 @@ public class NhifCode : BgMedicalIdentifier
         if (specialCode?.Length != 2)
             return false;
 
-        foreach (string validValue in new string[] { "80", "81", "82" })
+        foreach (string validValue in SPECIAL_CODES)
             if (specialCode == validValue)
                 return true;
 
@@ -81,14 +76,14 @@ public class NhifCode : BgMedicalIdentifier
         string practiceTypeCode = value.Substring(4, 3);
         string serialCode = value.Substring(7, 3);
 
-        TryInitializePrerequisites();
+        InitializeSets();
 
         if (!ValidateRegion(regionCode)) throw new ArgumentException(nameof(value), $"Invalid {nameof(Rzi)} region code.");
         if (!ValidateSpecialCode(specialCode)) throw new ArgumentException(nameof(value), $"Invalid {nameof(Rzi)} municipality code.");
         if (!ValidateType(practiceTypeCode)) throw new ArgumentException(nameof(value), $"Invalid {nameof(Rzi)} practice type code.");
         if (!ValidateRegion(serialCode)) throw new ArgumentException(nameof(value), $"Invalid {nameof(Rzi)} serial code.");
 
-        return new NhifCode(int.Parse(regionCode), int.Parse(specialCode), int.Parse(practiceTypeCode), int.Parse(serialCode));
+        return new NhifCode(); // TODO: Set properties
     }
 
     public static bool TryParse(string value, out NhifCode result)

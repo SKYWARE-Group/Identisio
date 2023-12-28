@@ -1,4 +1,5 @@
-﻿using Skyware.Identisio.Organizations.Bg.Model;
+﻿using Skyware.Identisio.Bg;
+using Skyware.Identisio.Organizations.Bg.Model;
 using System;
 
 // Ignore Spelling: rzi
@@ -17,7 +18,7 @@ namespace Skyware.Identisio.Organizations.Bg;
 /// CCC - Type of practice (Вид ЛЗ) <br/>
 /// DDD - Sequential number (Пореден номер), 001 - 999 <br/>
 /// </remarks>
-public class Rzi : BgMedicalIdentifier
+public class Rzi : PracticeIdentifier
 {
 
     public override string Name => "Practice number (РЗИ код)";
@@ -28,18 +29,6 @@ public class Rzi : BgMedicalIdentifier
 
     public override bool IsPrivateData => false;
 
-    //TODO: implement Parse
-
-    private Rzi(int region, int municipality, int practice, int serial) : base(region, practice, serial)
-    {
-        Municipality = municipality;
-    }
-
-    #region Props
-
-    public int Municipality { get; set; }
-
-    #endregion
 
     #region Validation
 
@@ -47,7 +36,7 @@ public class Rzi : BgMedicalIdentifier
     {
         if (value?.Length != 10) return false;
 
-        TryInitializePrerequisites();
+        InitializeSets();
 
         string regionCode = value.Substring(0, 2);
         string municipaltyCode = value.Substring(2, 2);
@@ -87,14 +76,14 @@ public class Rzi : BgMedicalIdentifier
         string practiceTypeCode = value.Substring(4, 3);
         string serialCode = value.Substring(7, 3);
 
-        TryInitializePrerequisites();
+        InitializeSets();
 
         if (!ValidateRegion(regionCode)) throw new ArgumentException(nameof(value), $"Invalid {nameof(Rzi)} region code.");
         if (!ValidateMunicipality(regionCode, municipaltyCode)) throw new ArgumentException(nameof(value), $"Invalid {nameof(Rzi)} municipality code.");
         if (!ValidateType(practiceTypeCode)) throw new ArgumentException(nameof(value), $"Invalid {nameof(Rzi)} practice type code.");
         if (!ValidateRegion(serialCode)) throw new ArgumentException(nameof(value), $"Invalid {nameof(Rzi)} serial code.");
 
-        return new Rzi(int.Parse(regionCode), int.Parse(municipaltyCode), int.Parse(practiceTypeCode), int.Parse(serialCode));
+        return new Rzi(); // TODO: Set properties
     }
 
     public static bool TryParse(string value, out Rzi result)

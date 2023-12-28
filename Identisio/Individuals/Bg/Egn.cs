@@ -5,11 +5,17 @@ using System.Text.RegularExpressions;
 
 namespace Skyware.Identisio.Individuals.Bg;
 
-
 /// <summary>
 /// EGN (ЕГН) is the identifier for native Bulgarian citizens
 /// Issuer: GRAO (ГРАО)
 /// </summary>
+/// <remarks>
+/// Format: AABBCCDDDE, where <br/>
+/// AA - year of birth, 00-99 <br/>
+/// BB - month of birth, 01-12, 21-32 and 41-52 <br/>
+/// DDD - unknown <br/>
+/// E - check digit. <br/>
+/// </remarks>
 public class Egn : IdentifierBase, IEncodesGender, IEncodesBirthdate
 {
 
@@ -51,7 +57,7 @@ public class Egn : IdentifierBase, IEncodesGender, IEncodesBirthdate
 
     #region Actions
 
-    // Instantiation
+    // Parsing
 
     public static Egn Parse(string value)
     {

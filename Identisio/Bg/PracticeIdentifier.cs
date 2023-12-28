@@ -6,37 +6,30 @@ using System.Reflection;
 
 // Ignore Spelling: bg
 
-namespace Skyware.Identisio;
+namespace Skyware.Identisio.Bg;
 
-public abstract class BgMedicalIdentifier : IdentifierBase
+public abstract class PracticeIdentifier : RegionalIdentifier
 {
-    protected static IEnumerable<Region> _regions;
+
+    /// <summary>
+    /// These are applicable values instead of municipality code.
+    /// </summary>
+    protected static string[] SPECIAL_CODES = ["80", "81", "82", "90", "99"];
+
     private static IEnumerable<PracticeType> _practiceTypes;
 
-    protected BgMedicalIdentifier(int region, int practice, int serial)
-    {
-        Region = region;
-        PracticeType = practice;
-        Serial = serial;
-    }
+    public string MunicipalityOrSpecialCode { get; private set; }
 
-    #region Props
-
-    public int Region { get; private set; }
+    public string MunicipalityOrSpecialName { get; private set; }
 
     public int PracticeType { get; private set; }
 
     public int Serial { get; private set; }
 
-    #endregion
 
-    protected static void TryInitializePrerequisites()
+    protected static void InitializeSets()
     {
-        if (_regions == null)
-        {
-            string regionsFile = Assembly.GetExecutingAssembly().GetManifestResourceNames().FirstOrDefault(p => p.EndsWith("regions.xml"));
-            _regions = XmlUtils.GetObject<Regions>(Assembly.GetExecutingAssembly().GetManifestResourceStream(regionsFile))?.RegionsCollection;
-        }
+        InitializeRegions();
         if (_practiceTypes == null)
         {
             string practiceTypesFile = Assembly.GetExecutingAssembly().GetManifestResourceNames().FirstOrDefault(p => p.EndsWith("practice-types.xml"));
@@ -45,18 +38,6 @@ public abstract class BgMedicalIdentifier : IdentifierBase
     }
 
     #region Validate
-
-    protected static bool ValidateRegion(string regionCode)
-    {
-        if (regionCode?.Length != 2)
-            return false;
-
-        foreach (Region region in _regions)
-            if (region.Code == regionCode)
-                return true;
-
-        return false;
-    }
 
 
     protected static bool ValidateType(string practiceTypeCode)

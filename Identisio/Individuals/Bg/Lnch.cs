@@ -40,6 +40,8 @@ public class Lnch : IdentifierBase
 
     #region Actions
 
+    // Validation
+
     public new static bool Validate(string inputLnch)
     {
         if (string.IsNullOrWhiteSpace(inputLnch)) return false;
