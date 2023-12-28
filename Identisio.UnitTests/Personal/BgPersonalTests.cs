@@ -10,11 +10,12 @@ public class BgPersonalTests
 {
 
 
-    [TestCase("1400000584", "Пазарджик", 584)]
-    [TestCase("2300065584", "София (град)", 65584)]
-    public void UinPositiveTests(string value, string region, int seqNumber)
+    [TestCase("1400000584", "Пазарджик", "14", 584)]
+    [TestCase("2300065584", "София (град)", "23", 65584)]
+    public void UinPositiveTests(string value, string region, string code, int seqNumber)
     {
         Uin result = Uin.Parse(value);
+        Assert.That(result.RegionCode.Equals(code));
         Assert.That(result.RegionName.Equals(region));
         Assert.That(result.SequentialNumber.Equals(seqNumber));
     }
