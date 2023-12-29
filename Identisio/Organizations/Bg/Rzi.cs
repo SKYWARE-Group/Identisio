@@ -57,10 +57,9 @@ public sealed class Rzi : PracticeIdentifier
         foreach (Region region in _regions.Values)
             if (region.Code == regionCode)
                 foreach (Municipality municipality in region.Municipalities)
-                    if (municipality.Code == municipalityCode)
+                    if (municipality.HRCode == municipalityCode)
                         return true;
-
-        return false;
+        return SPECIAL_CODES.Contains(municipalityCode);
     }
 
     #endregion
@@ -89,7 +88,7 @@ public sealed class Rzi : PracticeIdentifier
             RegionName = _regions[regionCode].Name,
 
             MunicipalityOrSpecialCode = municipaltyCode,
-            MunicipalityOrSpecialName = _regions[regionCode].Municipalities.FirstOrDefault(p => p.Code == municipaltyCode)?.Name,
+            MunicipalityOrSpecialName = _regions[regionCode].Municipalities.FirstOrDefault(p => p.Code == municipaltyCode)?.Name ?? string.Empty,
 
             PracticeTypeCode = practiceTypeCode,
             Serial = int.Parse(serialCode),
