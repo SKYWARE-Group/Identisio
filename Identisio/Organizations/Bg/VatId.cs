@@ -1,4 +1,9 @@
-﻿namespace Skyware.Identisio.Organizations.Bg;
+﻿using System;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.Text.RegularExpressions;
+
+namespace Skyware.Identisio.Organizations.Bg;
 
 
 /// <summary>
@@ -7,6 +12,7 @@
 /// </summary>
 public class VatId : IdentifierBase
 {
+    private static string[] VALID_VAT_ID_PREFIXES = { "BG" };
 
     public override string Name => "VAT Identification Code";
 
@@ -16,6 +22,14 @@ public class VatId : IdentifierBase
 
     public override bool IsPrivateData => false;
 
-    //TODO: implement Validate ("BG" + Eik)
+    public new static bool Validate(string value)
+    {
+        if (string.IsNullOrEmpty(value)) return false;
+        if (value.Length != 11 && value.Length != 15) return false;
 
+        string code = value.Substring(0,2);
+        if(!VALID_VAT_ID_PREFIXES.Contains(code)) return false;
+
+        return Eik.Validate(value.Substring(2));
+    }
 }

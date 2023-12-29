@@ -16,15 +16,15 @@ public abstract class PracticeIdentifier : RegionalIdentifier
     /// </summary>
     protected static string[] SPECIAL_CODES = ["80", "81", "82", "90", "99"]; // Check if 81, 82 and 99 are valid
 
-    private static IEnumerable<PracticeType> _practiceTypes;
+    private static IDictionary<string, PracticeType> _practiceTypes;
 
-    public string MunicipalityOrSpecialCode { get; private set; }
+    public string MunicipalityOrSpecialCode { get; protected set; }
 
-    public string MunicipalityOrSpecialName { get; private set; }
+    public string MunicipalityOrSpecialName { get; protected set; }
 
-    public string PracticeTypeCode { get; private set; }
+    public string PracticeTypeCode { get; protected set; }
 
-    public int Serial { get; private set; }
+    public int Serial { get; protected set; }
 
 
     protected static void InitializeSets()
@@ -33,7 +33,8 @@ public abstract class PracticeIdentifier : RegionalIdentifier
         if (_practiceTypes == null)
         {
             string practiceTypesFile = Assembly.GetExecutingAssembly().GetManifestResourceNames().FirstOrDefault(p => p.EndsWith("practice-types.xml"));
-            _practiceTypes = XmlUtils.GetObject<PracticeTypes>(Assembly.GetExecutingAssembly().GetManifestResourceStream(practiceTypesFile))?.PracticeTypesCollection;
+            _practiceTypes = XmlUtils.GetObject<PracticeTypes>(Assembly.GetExecutingAssembly().GetManifestResourceStream(practiceTypesFile))
+                ?.PracticeTypesCollection.ToDictionary(p => p.Code);
         }
     }
 
@@ -45,7 +46,7 @@ public abstract class PracticeIdentifier : RegionalIdentifier
         if (practiceTypeCode?.Length != 3)
             return false;
 
-        foreach (PracticeType practiceType in _practiceTypes)
+        foreach (PracticeType practiceType in _practiceTypes.Values)
             if (practiceType.Code == practiceTypeCode)
                 return true;
 

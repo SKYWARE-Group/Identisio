@@ -83,7 +83,18 @@ public class NhifCode : PracticeIdentifier
         if (!ValidateType(practiceTypeCode)) throw new ArgumentException(nameof(value), $"Invalid {nameof(Rzi)} practice type code.");
         if (!ValidateRegion(serialCode)) throw new ArgumentException(nameof(value), $"Invalid {nameof(Rzi)} serial code.");
 
-        return new NhifCode(); // TODO: Set properties
+        return new NhifCode()
+        {
+            RegionCode = regionCode,
+            RegionName = _Regions[regionCode].Name,
+
+            MunicipalityOrSpecialCode = specialCode,
+
+            PracticeTypeCode = practiceTypeCode,
+            Serial = int.Parse(serialCode),
+
+            Value = value
+        };
     }
 
     public static bool TryParse(string value, out NhifCode result)

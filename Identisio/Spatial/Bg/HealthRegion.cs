@@ -1,5 +1,8 @@
 ﻿using Skyware.Identisio.Bg;
+using Skyware.Identisio.Organizations.Bg.Model;
 using System;
+using System.Globalization;
+using System.Linq;
 
 namespace Skyware.Identisio.Spatial.Bg;
 
@@ -31,13 +34,58 @@ public class HealthRegion : RegionalIdentifier
 
     // Parsing
 
-    public static HealthRegion Parse(string value) => throw new NotImplementedException();
+    public static HealthRegion Parse(string value)
+    {
+        if (!Validate(value)) throw new ArgumentException($"Invalid data for {nameof(HealthRegion)}.");
 
-    public static bool TryParse(string value, out HealthRegion result) => throw new NotImplementedException();
+        string[] codes = value.Split('.');
+        string regionCode = codes[0];
+        string healthRegionCode = codes[1];
 
-    // Validation
+        return new HealthRegion()
+        {
+            RegionCode = regionCode,
+            RegionName = _Regions[regionCode].Name,
 
-    public new static bool Validate(string value) => throw new NotImplementedException();
+            MunicipalityCode = healthRegionCode,
+            MunicipalityName = _Regions[regionCode].Municipalities.FirstOrDefault(p => p.HRCode == healthRegionCode).Name,
 
+            Value = value
+        };
+    }
 
+    public static bool TryParse(string value, out HealthRegion result)
+    {
+        try
+        {
+            result = Parse(value);
+            return true;
+        }
+        catch (Exception)
+        {
+            result = null;
+            return false;
+        }
+    }
+
+    public new static bool Validate(string value)
+    {
+        if (string.IsNullOrEmpty(value)) return false;
+        if (value.Length != 5) return false;
+
+        string[] codes = value.Split('.');
+        string regionCode = codes[0];
+        string healthRegionCode = codes[1];
+
+        if (regionCode?.Length != 2)
+            return false;
+
+        foreach (Region region in _Regions.Values)
+            if (region.Code == regionCode)
+                foreach (Municipality municipality in region.Municipalities)
+                    if (municipality.HRCode == healthRegionCode)
+                        return true;
+
+        return false;
+    }
 }

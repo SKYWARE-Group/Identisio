@@ -1,4 +1,5 @@
 ﻿using Skyware.Identisio.Bg;
+using Skyware.Identisio.Organizations.Bg.Model;
 using System;
 using System.Text.RegularExpressions;
 
@@ -27,17 +28,61 @@ public class Uin : RegionalIdentifier
     public override bool IsPrivateData => false;
 
 
-    public int SequentialNumber => throw new NotImplementedException();
+    public int SequentialNumber { get; private set; }
 
 
     // Parsing
 
-    public static Uin Parse(string value) => throw new NotImplementedException();
+    public static Uin Parse(string value)
+    {
+        if (!Validate(value)) throw new ArgumentException($"Invalid data for {nameof(Uin)}.");
 
-    public static bool TryParse(string value, out Uin result) => throw new NotImplementedException();
+        string regionCode = value.Substring(0, 2);
+        string sequentialNumber = value.Substring(2);
+
+        return new Uin()
+        {
+            RegionCode = regionCode,
+            RegionName = _BMARegions[regionCode].Name,
+
+            Value = value,
+            SequentialNumber = int.Parse(sequentialNumber),
+        };
+    }
+
+    public static bool TryParse(string value, out Uin result)
+    {
+        try
+        {
+            result = Parse(value);
+            return true;
+        }
+        catch (Exception)
+        {
+            result = null;
+            return false;
+        }
+    }
 
     // Validation
 
-    public new static bool Validate(string value) => throw new NotImplementedException();
+    public new static bool Validate(string value)
+    {
+        if (string.IsNullOrEmpty(value)) return false;
 
+        string BMACode = value.Substring(0, 2);
+        string sequentialNumber = value.Substring(2);
+
+        if (BMACode?.Length != 2)
+            return false;
+
+        bool regionResult = false;
+        foreach (Region region in _BMARegions.Values)
+            if (region.BMACode == BMACode)
+                regionResult = true;
+
+        if (sequentialNumber.Length == 8) return regionResult;
+
+        return false;
+    }
 }
