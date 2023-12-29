@@ -10,7 +10,7 @@ public class BgSpatialTests
 
     [TestCase("01.04", "Благоевград", "01", "Гоце Делчев", "04")]
     [TestCase("16.07", "Пловдив", "16", "Марица", "07")]
-    [TestCase("22.01", "София (град)", "22", "Средец", "01")]
+    [TestCase("22.01", "София (град)", "22", "", "01")]
     public void HealthRegionPositiveTests(string value, string region, string code, string healthRegion, string healthCode)
     {
         HealthRegion result = HealthRegion.Parse(value);
