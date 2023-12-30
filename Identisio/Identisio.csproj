@@ -9,7 +9,7 @@
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Company>SKYWARE Group</Company>
 		<Description>Worldwide identifiers library</Description>
-		<Copyright>Copyright (C) 2022, SKYWARE Group</Copyright>
+		<Copyright>Copyright (C) 2022-2023, SKYWARE Group</Copyright>
 		<PackageIcon>identisio-icon.png</PackageIcon>
 		<PackageReadmeFile>nuget-read-me.md</PackageReadmeFile>
 		<RepositoryType>git</RepositoryType>

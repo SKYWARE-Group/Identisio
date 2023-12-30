@@ -67,7 +67,7 @@ public class BgOrganizationsTests
     [TestCase("BG1751162861127")]
     [TestCase("BG1217087192001")]
     [TestCase("BG1017087192000")]
-    public void VvatIdValidateFalse(string value)
+    public void VatIdValidateFalse(string value)
     {
         var eikValidate = VatId.Validate(value);
         Assert.That(eikValidate, Is.False);
