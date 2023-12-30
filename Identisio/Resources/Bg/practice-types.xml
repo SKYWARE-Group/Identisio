@@ -317,28 +317,28 @@
   </PracticeType>
   <PracticeType>
     <Code>241</Code>
-    <Name>Психитрична болница - национална</Name>
+    <Name>Психиатрична болница - национална</Name>
     <IsIndividual>false</IsIndividual>
     <CanPublish>false</CanPublish>
     <CanConsume>false</CanConsume>
   </PracticeType>
   <PracticeType>
     <Code>242</Code>
-    <Name>Психитрична болница - специализирана</Name>
+    <Name>Психиатрична болница - специализирана</Name>
     <IsIndividual>false</IsIndividual>
     <CanPublish>false</CanPublish>
     <CanConsume>false</CanConsume>
   </PracticeType>
   <PracticeType>
     <Code>243</Code>
-    <Name>Психитрична болница - специализирана , филиал</Name>
+    <Name>Психиатрична болница - специализирана , филиал</Name>
     <IsIndividual>false</IsIndividual>
     <CanPublish>false</CanPublish>
     <CanConsume>false</CanConsume>
   </PracticeType>
   <PracticeType>
     <Code>244</Code>
-    <Name>Психитрична болница - национална , специализирана</Name>
+    <Name>Психиатрична болница - национална , специализирана</Name>
     <IsIndividual>false</IsIndividual>
     <CanPublish>false</CanPublish>
     <CanConsume>false</CanConsume>

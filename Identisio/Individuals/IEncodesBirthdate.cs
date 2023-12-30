@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
-namespace Skyware.Identisio.Individuals
+namespace Skyware.Identisio.Individuals;
+
+public interface IEncodesBirthdate
 {
-    public interface IEncodesBirthdate
-    {
 
-        DateTime Birthdate { get; }
+    DateTime Birthdate { get; }
 
-    }
 }
