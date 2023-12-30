@@ -30,12 +30,12 @@ Assert.IsTrue(egn.Birthdate == new DateTime(1961, 1, 5));
     - Doctor Identifier (УИН на лекар)
  - <img src="Assets/flag-yu.png" height="14"> Former Yougoslavian countries
     - JMBG ([ЕМБГ](https://en.wikipedia.org/wiki/Unique_Master_Citizen_Number))
-### Organizations
+### <img src="Assets/organization.png" height="24"> Organizations
  - <img src="Assets/flag-bg.png" height="14"> Bulgaria
     - Company Registry Identifier (ЕИК/Булстат)
     - Medical Practice code (РЦЗ код)
     - NHIF number (НЗОК номер)
   
-### Spatial
+### <img src="Assets/location.png" height="24"> Spatial
  - <img src="Assets/flag-bg.png" height="14"> Bulgaria
     - Health Region (Здравен район)
