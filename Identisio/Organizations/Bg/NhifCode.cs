@@ -78,10 +78,10 @@ public class NhifCode : PracticeIdentifier
 
         InitializeSets();
 
-        if (!ValidateRegion(regionCode)) throw new ArgumentException(nameof(value), $"Invalid {nameof(Rzi)} region code.");
-        if (!ValidateSpecialCode(specialCode)) throw new ArgumentException(nameof(value), $"Invalid {nameof(Rzi)} municipality code.");
-        if (!ValidateType(practiceTypeCode)) throw new ArgumentException(nameof(value), $"Invalid {nameof(Rzi)} practice type code.");
-        if (!ValidateRegion(serialCode)) throw new ArgumentException(nameof(value), $"Invalid {nameof(Rzi)} serial code.");
+        if (!ValidateRegion(regionCode)) throw new ArgumentException(nameof(value), $"Invalid {nameof(NhifCode)} region code.");
+        if (!ValidateSpecialCode(specialCode)) throw new ArgumentException(nameof(value), $"Invalid {nameof(NhifCode)} municipality code.");
+        if (!ValidateType(practiceTypeCode)) throw new ArgumentException(nameof(value), $"Invalid {nameof(NhifCode)} practice type code.");
+        if (!ValidateSerialNumber(serialCode)) throw new ArgumentException(nameof(value), $"Invalid {nameof(NhifCode)} serial code.");
 
         return new NhifCode()
         {
