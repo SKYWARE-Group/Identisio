@@ -16,7 +16,7 @@
 		<PackageTags>Identifier;Validation</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<RepositoryUrl>https://github.com/SKYWARE-Group/Identisio</RepositoryUrl>
-		<Version>0.2.0</Version>
+		<Version>0.2.1</Version>
 		<Title>Identisio</Title>
 		<PackageProjectUrl>https://github.com/SKYWARE-Group/Identisio</PackageProjectUrl>
 	</PropertyGroup>

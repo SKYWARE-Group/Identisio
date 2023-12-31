@@ -57,7 +57,7 @@ public sealed class Rzi : PracticeIdentifier
         foreach (Region region in _regions.Values)
             if (region.Code == regionCode)
                 foreach (Municipality municipality in region.Municipalities)
-                    if (municipality.HRCode == municipalityCode)
+                    if (municipality.Code == municipalityCode)
                         return true;
         return SPECIAL_CODES.Contains(municipalityCode);
     }

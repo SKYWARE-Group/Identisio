@@ -81,8 +81,12 @@ public class BgOrganizationsTests
     [TestCase("0290111234", "Бургас", "02", "", "90", 234, "111")] // Индивидуална първична извънболнична медицинска практика
     [TestCase("0204211032", "Бургас", "02", "Бургас", "04", 32, "211")] // Болница за активно лечение - многопрофилна
     [TestCase("2490141001", "Стара Загора", "24", "", "90", 1, "141")] // Медико-Диагностична Лаборатория
+    [TestCase("2634121158", "Хасково", "26", "Хасково", "34", 158, "121")] //Индивидуална специализирана извънболнична медицинска практика
+    [TestCase("2210111534", "София (град)", "22", "Триадица", "10", 534, "111")] //Индивидуална първична извънболнична медицинска практика
+    [TestCase("1622111218", "Пловдив", "16", "Пловдив", "22", 218, "111")] //Индивидуална първична извънболнична медицинска практика
     public void RziPositiveTests(string value, string region, string regionCode, string municipality, string municipalityCode, int serial, string practiceType)
     {
+
         Rzi result = Rzi.Parse(value);
         Assert.That(result.RegionName.Equals(region));
         Assert.That(result.RegionCode.Equals(regionCode));
@@ -90,6 +94,8 @@ public class BgOrganizationsTests
         Assert.That(result.MunicipalityOrSpecialCode.Equals(municipalityCode));
         Assert.That(result.PracticeTypeCode.Equals(practiceType));
         Assert.That(result.Serial.Equals(serial));
+
+        Assert.IsTrue(Rzi.Validate(value));
     }
 
     [TestCase(null)]
@@ -99,10 +105,13 @@ public class BgOrganizationsTests
     [TestCase("AAAAAAAAAA")]
     [TestCase("2245111356")]
     [TestCase("9910913001")]
+    [TestCase("1618111218")]
     public void RziNegativeTests(string value)
     {
         var rziResult = Rzi.Validate(value);
         Assert.That(rziResult, Is.False);
+
+        Assert.IsFalse(Rzi.TryParse(value, out _));
     }
 
     #endregion
@@ -114,6 +123,9 @@ public class BgOrganizationsTests
     {
         var rziResult = NhifCode.Validate(value);
         Assert.That(rziResult, Is.True);
+
+        Assert.IsTrue(NhifCode.TryParse(value, out _));
+
     }
 
     [TestCase(null)]
@@ -127,6 +139,8 @@ public class BgOrganizationsTests
     {
         var rziResult = NhifCode.Validate(value);
         Assert.That(rziResult, Is.False);
+
+        Assert.IsFalse(NhifCode.TryParse(value, out _));
     }
 
 }
