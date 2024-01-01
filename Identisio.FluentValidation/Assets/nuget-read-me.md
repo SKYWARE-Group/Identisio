@@ -10,5 +10,5 @@ Some examples as to how can this library be used are listed bellow.
 var validatorEgn = new IdentifierValidator<Egn>();
 var validationResult = validatorEgn.Validate("0641056880");
 // Custom abstract validator example
-RuleFor(element => element).IsValidIdentifier<Egn>();
+RuleFor(element => element).IsValidEgn();
 ```
