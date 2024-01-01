@@ -1,21 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net6.0;net7.0;net8.0</TargetFrameworks>
+    <LangVersion>12.0</LangVersion>
 		<AssemblyName>Skyware.Identisio</AssemblyName>
 		<RootNamespace>Skyware.Identisio</RootNamespace>
 		<Authors>Mikhail Kalatchev</Authors>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Company>SKYWARE Group</Company>
 		<Description>Worldwide identifiers library</Description>
-		<Copyright>Copyright (C) 2022, SKYWARE Group</Copyright>
+		<Copyright>Copyright (C) 2022-2023, SKYWARE Group</Copyright>
 		<PackageIcon>identisio-icon.png</PackageIcon>
 		<PackageReadmeFile>nuget-read-me.md</PackageReadmeFile>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>Identifier;Validation</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<RepositoryUrl>https://github.com/SKYWARE-Group/Identisio</RepositoryUrl>
-		<Version>0.1.0</Version>
+		<Version>0.2.1</Version>
 		<Title>Identisio</Title>
 		<PackageProjectUrl>https://github.com/SKYWARE-Group/Identisio</PackageProjectUrl>
 	</PropertyGroup>
@@ -35,7 +36,6 @@
 			<PackagePath>\</PackagePath>
 		</Content>
 	</ItemGroup>
-	
 
 	<ItemGroup>
 		<None Remove="Resources\Bg\practice-types.xml" />

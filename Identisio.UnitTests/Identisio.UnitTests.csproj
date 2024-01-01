@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
 
     <IsPackable>false</IsPackable>
@@ -16,6 +16,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Identisio\Identisio.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Organizations\" />
   </ItemGroup>
 
 </Project>

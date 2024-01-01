@@ -1,26 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Security.Cryptography.X509Certificates;
+using System.Text.RegularExpressions;
 
-namespace Skyware.Identisio.Organizations.Bg
+namespace Skyware.Identisio.Organizations.Bg;
+
+
+/// <summary>
+/// VAT code of Bulgarian legal entities (compatible with EU VAT numbers). <br/>
+/// Issuer: NRA (Агенция по вземанията).
+/// </summary>
+public class VatId : IdentifierBase
 {
+    private static string[] VALID_VAT_ID_PREFIXES = { "BG" };
 
-    /// <summary>
-    /// VAT code of Bulgarian legal entities (compatible with EU VAT numbers)
-    /// </summary>
-    public class VatId : IdentifierBase
+    public override string Name => "VAT Identification Code";
+
+    public override string NativeAbbreviation => "ИН по ДДС";
+
+    public override string NativeName => "Идентификационен код по ЗДДС";
+
+    public override bool IsPrivateData => false;
+
+    public new static bool Validate(string value)
     {
+        if (string.IsNullOrEmpty(value)) return false;
+        if (value.Length != 11 && value.Length != 15) return false;
 
-        public override string Name => "VAT Identification Code";
+        string code = value.Substring(0,2);
+        if(!VALID_VAT_ID_PREFIXES.Contains(code)) return false;
 
-        public override string NativeAbbreviation => "ИН по ДДС";
-
-        public override string NativeName => "Идентификационен код по ЗДДС";
-
-        public override bool IsPrivateData => false;
-
-        //TODO: implement Validate ("BG" + Eik)
-
+        return Eik.Validate(value.Substring(2));
     }
-
 }
