@@ -47,7 +47,7 @@ public abstract class RegionalIdentifier : IdentifierBase
         }   
     }
 
-    protected static bool ValidateRegion(string regionCode)
+    public static bool ValidateRegion(string regionCode)
     {
         if (regionCode?.Length != 2)
             return false;
