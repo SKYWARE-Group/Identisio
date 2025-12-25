@@ -49,19 +49,6 @@ public sealed class Rzi : PracticeIdentifier
             && ValidateSerialNumber(serialCode);
     }
 
-    private static bool ValidateMunicipality(string regionCode, string municipalityCode)
-    {
-        if (municipalityCode?.Length != 2)
-            return false;
-
-        foreach (Region region in _regions.Values)
-            if (region.Code == regionCode)
-                foreach (Municipality municipality in region.Municipalities)
-                    if (municipality.Code == municipalityCode)
-                        return true;
-        return SPECIAL_CODES.Contains(municipalityCode);
-    }
-
     #endregion
 
     #region Parse
