@@ -81,7 +81,6 @@ public abstract class PracticeIdentifier : RegionalIdentifier
         return SPECIAL_CODES.Contains(municipalityCode);
     }
 
-
     #endregion
 
 }
