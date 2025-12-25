@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
+﻿using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace Skyware.Identisio.Organizations.Bg;
@@ -12,7 +10,7 @@ namespace Skyware.Identisio.Organizations.Bg;
 /// </summary>
 public class VatId : IdentifierBase
 {
-    private static string[] VALID_VAT_ID_PREFIXES = { "BG" };
+    private static readonly string[] VALID_VAT_ID_PREFIXES = ["BG"];
 
     public override string Name => "VAT Identification Code";
 

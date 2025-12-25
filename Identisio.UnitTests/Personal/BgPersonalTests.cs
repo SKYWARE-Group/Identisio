@@ -26,7 +26,7 @@ public class BgPersonalTests
     [TestCase("5200000584")]
     [TestCase("14000005841")]
     [TestCase("140005841")]
-    public void UinNegativeTests(string value)
+    public void UinNegativeTests(string? value)
     {
         bool result = Uin.TryParse(value, out _);
         Assert.That(result, Is.False);
@@ -37,9 +37,9 @@ public class BgPersonalTests
     [Test()]
     public void EgnParse()
     {
-        var egn = Egn.Parse("6101057509");
-        Assert.IsTrue(egn.IsMale);
-        Assert.IsTrue(egn.Birthdate == new DateTime(1961, 1, 5));
+        Egn egn = Egn.Parse("6101057509");
+        Assert.That(egn.IsMale, Is.True);
+        Assert.That(egn.Birthdate == new DateTime(1961, 1, 5), Is.True);
     }
 
     [Test()]
@@ -51,15 +51,15 @@ public class BgPersonalTests
     [Test()]
     public void EgnValidate()
     {
-        var egnValid = Egn.Validate("6101057509");
-        Assert.IsTrue(egnValid);
+        bool egnValid = Egn.Validate("6101057509");
+        Assert.That(egnValid, Is.True);
     }
 
     [Test()]
     public void LnchValidation()
     {
-        var isLnchValid = Lnch.Validate("0777180969");
-        Assert.IsTrue(isLnchValid);
+        bool isLnchValid = Lnch.Validate("0777180969");
+        Assert.That(isLnchValid, Is.True);
     }
 
 }

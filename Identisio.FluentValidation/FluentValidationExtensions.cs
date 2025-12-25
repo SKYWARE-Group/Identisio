@@ -1,11 +1,12 @@
-﻿// Ignore Spelling: Egn, Lnch, Yu, Pid, Eik, Iban, Rzi, Vat, Nhif, Uin
-using FluentValidation;
+﻿using FluentValidation;
 using Skyware.Identisio.Banking;
 using Skyware.Identisio.FluentValidation.Validators;
 using Skyware.Identisio.Individuals.Bg;
 using Skyware.Identisio.Individuals.Yu;
 using Skyware.Identisio.Organizations.Bg;
 using Skyware.Identisio.Spatial.Bg;
+
+// Ignore Spelling: Egn, Lnch, Yu, Pid, Eik, Iban, Rzi, Vat, Nhif, Uin
 
 namespace Skyware.Identisio.FluentValidation;
 

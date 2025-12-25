@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 
 namespace Skyware.Identisio.Organizations.Bg.Model;
 
+/// <summary>
+/// Represents a region (област) in Bulgaria.
+/// </summary>
 public class Region
 {
     [XmlElement("Name")]

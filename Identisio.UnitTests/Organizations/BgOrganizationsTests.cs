@@ -18,7 +18,7 @@ public class BgOrganizationsTests
     [TestCase("1217087192000")]
     public void EikValidateTrue(string value)
     {
-        var eikValidate = Eik.Validate(value);
+        bool eikValidate = Eik.Validate(value);
         Assert.That(eikValidate, Is.True);
     }
 
@@ -33,7 +33,7 @@ public class BgOrganizationsTests
     [TestCase("1017087192000")]
     public void EikValidateFalse(string value)
     {
-        var eikValidate = Eik.Validate(value);
+        bool eikValidate = Eik.Validate(value);
         Assert.That(eikValidate, Is.False);
     }
 
@@ -48,8 +48,8 @@ public class BgOrganizationsTests
     [TestCase("BG1217087192000")]
     public void VATIdValidateTrue(string value)
     {
-        var eikValidate = VatId.Validate(value);
-        Assert.That(eikValidate, Is.True);
+        bool vatIdValidate = VatId.Validate(value);
+        Assert.That(vatIdValidate, Is.True);
     }
 
     [TestCase("")]
@@ -69,8 +69,8 @@ public class BgOrganizationsTests
     [TestCase("BG1017087192000")]
     public void VatIdValidateFalse(string value)
     {
-        var eikValidate = VatId.Validate(value);
-        Assert.That(eikValidate, Is.False);
+        bool vatIdValidate = VatId.Validate(value);
+        Assert.That(vatIdValidate, Is.False);
     }
 
     #endregion
@@ -95,7 +95,7 @@ public class BgOrganizationsTests
         Assert.That(result.PracticeTypeCode.Equals(practiceType));
         Assert.That(result.Serial.Equals(serial));
 
-        Assert.IsTrue(Rzi.Validate(value));
+        Assert.That(Rzi.Validate(value), Is.True);
     }
 
     [TestCase(null)]
@@ -106,12 +106,12 @@ public class BgOrganizationsTests
     [TestCase("2245111356")]
     [TestCase("9910913001")]
     [TestCase("1618111218")]
-    public void RziNegativeTests(string value)
+    public void RziNegativeTests(string? value)
     {
-        var rziResult = Rzi.Validate(value);
+        bool rziResult = Rzi.Validate(value);
         Assert.That(rziResult, Is.False);
 
-        Assert.IsFalse(Rzi.TryParse(value, out _));
+        Assert.That(Rzi.TryParse(value, out _), Is.False);
     }
 
     #endregion
@@ -121,10 +121,10 @@ public class BgOrganizationsTests
     [TestCase("1582111999")]
     public void NhifValidateTrue(string value)
     {
-        var rziResult = NhifCode.Validate(value);
-        Assert.That(rziResult, Is.True);
+        bool nhifCodeValidate = NhifCode.Validate(value);
+        Assert.That(nhifCodeValidate, Is.True);
 
-        Assert.IsTrue(NhifCode.TryParse(value, out _));
+        Assert.That(NhifCode.TryParse(value, out _), Is.True);
 
     }
 
@@ -135,12 +135,12 @@ public class BgOrganizationsTests
     [TestCase("AAAAAAAAAA")]
     [TestCase("2283111356")]
     [TestCase("9981913001")]
-    public void NhifValidateFalse(string value)
+    public void NhifValidateFalse(string? value)
     {
-        var rziResult = NhifCode.Validate(value);
-        Assert.That(rziResult, Is.False);
+        bool nhifCodeValidate = NhifCode.Validate(value);
+        Assert.That(nhifCodeValidate, Is.False);
 
-        Assert.IsFalse(NhifCode.TryParse(value, out _));
+        Assert.That(NhifCode.TryParse(value, out _), Is.False);
     }
 
 }

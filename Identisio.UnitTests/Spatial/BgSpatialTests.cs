@@ -27,7 +27,7 @@ public class BgSpatialTests
     [TestCase(null)]
     [TestCase("")]
     [TestCase("AA.BB")]
-    public void HealthRegionNegativeTests(string value)
+    public void HealthRegionNegativeTests(string? value)
     {
         bool result = HealthRegion.TryParse(value, out _);
         Assert.That(result, Is.False);

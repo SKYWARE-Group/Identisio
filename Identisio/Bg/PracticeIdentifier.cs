@@ -8,6 +8,9 @@ using System.Reflection;
 
 namespace Skyware.Identisio.Bg;
 
+/// <summary>
+/// Represents a Bulgarian Medical Practice Identifier issued to medical practices by the Bulgarian Ministry of Health.
+/// </summary>
 public abstract class PracticeIdentifier : RegionalIdentifier
 {
 
@@ -30,7 +33,7 @@ public abstract class PracticeIdentifier : RegionalIdentifier
     protected static void InitializeSets()
     {
         InitializeRegions();
-        if (_practiceTypes == null)
+        if (_practiceTypes is null)
         {
             string practiceTypesFile = Assembly.GetExecutingAssembly().GetManifestResourceNames().FirstOrDefault(p => p.EndsWith("practice-types.xml"));
             _practiceTypes = XmlUtils.GetObject<PracticeTypes>(Assembly.GetExecutingAssembly().GetManifestResourceStream(practiceTypesFile))

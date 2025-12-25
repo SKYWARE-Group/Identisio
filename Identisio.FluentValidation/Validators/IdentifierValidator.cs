@@ -1,5 +1,4 @@
 ﻿using FluentValidation;
-using Skyware.Identisio;
 using System;
 
 namespace Skyware.Identisio.FluentValidation.Validators;
@@ -18,7 +17,7 @@ public class IdentifierValidator<TIdentifierBase> : AbstractValidator<string>
             string errMsg = $"The input did not pass the \"Validate\" method of \"{typeof(TIdentifierBase).Name}\".";
             try
             {
-                if (typeof(TIdentifierBase).GetMethod("Parse") != null && typeof(TIdentifierBase).GetMethod("Parse").GetParameters().Length == 1 && typeof(TIdentifierBase).GetMethod("Parse").GetParameters()[0].ParameterType == typeof(string))
+                if (typeof(TIdentifierBase).GetMethod("Parse") != null && typeof(TIdentifierBase).GetMethod("Parse")!.GetParameters().Length == 1 && typeof(TIdentifierBase).GetMethod("Parse").GetParameters()[0].ParameterType == typeof(string))
                 {
                     typeof(TIdentifierBase).GetMethod("Parse").Invoke(null, new object[] { el });
                     return true;
@@ -26,13 +25,13 @@ public class IdentifierValidator<TIdentifierBase> : AbstractValidator<string>
                 else
                 {
                     context.MessageFormatter.AppendArgument("ErrorMessage", errMsg);
-                    return (bool)typeof(TIdentifierBase).GetMethod(nameof(IdentifierBase.Validate)).Invoke(null, new string[] { el });
+                    return (bool)typeof(TIdentifierBase)!.GetMethod(nameof(IdentifierBase.Validate)).Invoke(null, new string[] { el });
                 }
             }
             catch (Exception ex)
             {
                 if (!string.IsNullOrEmpty(ex.InnerException?.Message))
-                    errMsg = ex.InnerException.Message;
+                    errMsg = ex.InnerException!.Message;
                 else
                     errMsg = ex.Message;
             }

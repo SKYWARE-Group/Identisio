@@ -15,7 +15,7 @@ public class YuPid : IdentifierBase, IEncodesGender, IEncodesBirthdate
     #region Fields
 
     private static readonly string _YuRegex = @"^\d{13}$";
-    private static readonly Regex _Regex = new Regex(_YuRegex);
+    private static readonly Regex _Regex = new(_YuRegex);
 
     #endregion
 

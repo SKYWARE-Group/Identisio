@@ -1,49 +1,49 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net8.0;net9.0;net10.0</TargetFrameworks>
-	<LangVersion>11</LangVersion>
-    <Nullable>enable</Nullable>
-	<AssemblyName>Skyware.Identisio.FluentValidation</AssemblyName>
-	<RootNamespace>Skyware.Identisio.FluentValidation</RootNamespace>
-	<Authors>Ivan Kalatchev</Authors>
-	<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-	<Company>SKYWARE Group</Company>
-	<Description>Worldwide identifiers library</Description>
-	<Copyright>Copyright (C) 2022, SKYWARE Group</Copyright>
-	<PackageIcon>identisio-icon.png</PackageIcon>
-	<PackageReadmeFile>nuget-read-me.md</PackageReadmeFile>
-	<RepositoryType>git</RepositoryType>
-	<PackageTags>Identifier;Validation</PackageTags>
-	<PackageLicenseExpression>MIT</PackageLicenseExpression>
-	<RepositoryUrl>https://github.com/SKYWARE-Group/Identisio</RepositoryUrl>
-	<Version>0.2.1</Version>
-	<Title>Identisio</Title>
-	<PackageProjectUrl>https://github.com/SKYWARE-Group/Identisio</PackageProjectUrl>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;netstandard2.1;net8.0;net9.0;net10.0</TargetFrameworks>
+		<LangVersion>11</LangVersion>
+		<Nullable>enable</Nullable>
+		<AssemblyName>Skyware.Identisio.FluentValidation</AssemblyName>
+		<RootNamespace>Skyware.Identisio.FluentValidation</RootNamespace>
+		<Authors>Ivan Kalatchev</Authors>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Company>SKYWARE Group</Company>
+		<Description>Worldwide identifiers library</Description>
+		<Copyright>Copyright (C) 2022, SKYWARE Group</Copyright>
+		<PackageIcon>identisio-icon.png</PackageIcon>
+		<PackageReadmeFile>nuget-read-me.md</PackageReadmeFile>
+		<RepositoryType>git</RepositoryType>
+		<PackageTags>Identifier;Validation</PackageTags>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<RepositoryUrl>https://github.com/SKYWARE-Group/Identisio</RepositoryUrl>
+		<Version>0.3.0</Version>
+		<Title>Identisio</Title>
+		<PackageProjectUrl>https://github.com/SKYWARE-Group/Identisio</PackageProjectUrl>
+	</PropertyGroup>
 
-  <ItemGroup>
-	<None Remove="Assets\nuget-read-me.md" />
-	<None Remove="Assets\identisio-icon.png" />
-  </ItemGroup>
+	<ItemGroup>
+		<None Remove="Assets\nuget-read-me.md" />
+		<None Remove="Assets\identisio-icon.png" />
+	</ItemGroup>
 
-  <ItemGroup>
-	  <Content Include="Assets\nuget-read-me.md">
-	  <Pack>True</Pack>
-	  <PackagePath>\</PackagePath>
-	</Content>
-	<Content Include="Assets\identisio-icon.png">
-	  <Pack>True</Pack>
-	  <PackagePath>\</PackagePath>
-	</Content>
-  </ItemGroup>
+	<ItemGroup>
+		<Content Include="Assets\nuget-read-me.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</Content>
+		<Content Include="Assets\identisio-icon.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</Content>
+	</ItemGroup>
 
-  <ItemGroup>
-    <PackageReference Include="FluentValidation" Version="11.9.0" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="FluentValidation" Version="[11.12.0,)" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Identisio\Identisio.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Identisio\Identisio.csproj" />
+	</ItemGroup>
 
 </Project>

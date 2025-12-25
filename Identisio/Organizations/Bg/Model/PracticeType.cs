@@ -2,8 +2,12 @@
 
 namespace Skyware.Identisio.Organizations.Bg.Model;
 
+/// <summary>
+/// Represents a medical practice type in Bulgaria.
+/// </summary>
 public class PracticeType
 {
+
     [XmlElement("Code")]
     public string Code { get; set; }
 
@@ -18,4 +22,5 @@ public class PracticeType
 
     [XmlElement("CanConsume")]
     public bool CanConsume { get; set; }
+
 }

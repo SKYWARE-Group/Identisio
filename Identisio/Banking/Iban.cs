@@ -10,7 +10,7 @@ namespace Skyware.Identisio.Banking;
 public class Iban : IdentifierBase
 {
 
-    public static string[] COUNTRY_CODES = { "BG" };
+    public static readonly string[] COUNTRY_CODES = ["BG"];
 
     public override string Name => "International Bank Account Number";
 
@@ -23,7 +23,7 @@ public class Iban : IdentifierBase
     public new static bool Validate(string value)
     {
         if (string.IsNullOrEmpty(value)) return false;
-        value = value.Replace(" ","");
+        value = value.Replace(" ", string.Empty);
 
         if (value.Length != 22) return false;
 

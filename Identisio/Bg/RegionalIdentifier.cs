@@ -6,6 +6,9 @@ using System.Reflection;
 
 namespace Skyware.Identisio.Bg;
 
+/// <summary>
+/// Base class for Bulgarian identifiers that include regional information.
+/// </summary>
 public abstract class RegionalIdentifier : IdentifierBase
 {
 
@@ -15,7 +18,7 @@ public abstract class RegionalIdentifier : IdentifierBase
     {
         get
         {
-            if (_regions == null) InitializeRegions();
+            if (_regions is null) InitializeRegions();
             return _regions;
         }
     }
@@ -24,7 +27,7 @@ public abstract class RegionalIdentifier : IdentifierBase
     {
         get
         {
-            if (_bmaRegions == null) InitializeRegions();
+            if (_bmaRegions is null) InitializeRegions();
             return _bmaRegions;
         }
     }
@@ -38,10 +41,10 @@ public abstract class RegionalIdentifier : IdentifierBase
 
     protected static void InitializeRegions()
     {
-        if (_regions == null)
+        if (_regions is null)
         {
             string regionsFile = Assembly.GetExecutingAssembly().GetManifestResourceNames().FirstOrDefault(p => p.EndsWith("regions.xml"));
-            var tempregions = XmlUtils.GetObject<Regions>(Assembly.GetExecutingAssembly().GetManifestResourceStream(regionsFile));
+            Regions tempregions = XmlUtils.GetObject<Regions>(Assembly.GetExecutingAssembly().GetManifestResourceStream(regionsFile));
             _regions = tempregions?.RegionsCollection.ToDictionary(p => p.Code);
             _bmaRegions = tempregions?.RegionsCollection.ToDictionary(p => p.BMACode);
         }   

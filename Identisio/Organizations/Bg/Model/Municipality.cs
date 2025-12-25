@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 
 namespace Skyware.Identisio.Organizations.Bg.Model;
 
+/// <summary>
+/// Represents a municipality (община) in Bulgaria.
+/// </summary>
 public class Municipality
 {
+
     [XmlElement("Name")]
     public string Name { get; set; }
 
@@ -15,4 +16,5 @@ public class Municipality
 
     [XmlElement("HRCode")]
     public string HRCode { get; set; }
+
 }

@@ -10,9 +10,9 @@ public class YuTests
     [Test()]
     public void YuPidParse()
     {
-        var yuPid = YuPid.Parse("0101006500006");
-        Assert.IsTrue(yuPid.IsMale);
-        Assert.IsTrue(yuPid.Birthdate == new DateTime(2006, 1, 1));
+        YuPid yuPid = YuPid.Parse("0101006500006");
+        Assert.That(yuPid.IsMale, Is.True);
+        Assert.That(yuPid.Birthdate == new DateTime(2006, 1, 1), Is.True);
     }
 
     [Test()]
@@ -24,8 +24,8 @@ public class YuTests
     [Test()]
     public void YuPidValidation()
     {
-        var yuPidValid = YuPid.Validate("0101006500006");
-        Assert.IsTrue(yuPidValid);
+        bool yuPidValid = YuPid.Validate("0101006500006");
+        Assert.That(yuPidValid, Is.True);
     }
 
 
