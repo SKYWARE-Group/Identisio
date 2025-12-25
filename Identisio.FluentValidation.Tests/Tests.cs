@@ -3,6 +3,8 @@ using Identisio.FluentValidation.Tests.Validators;
 using Skyware.Identisio.FluentValidation.Validators;
 using Skyware.Identisio.Individuals.Bg;
 using Skyware.Identisio.Individuals.Yu;
+using Skyware.Identisio.Organizations.Bg;
+using Skyware.Identisio.Spatial.Bg;
 
 namespace Identisio.FluentValidation.Tests;
 
@@ -28,6 +30,11 @@ public class Tests
         {"0641056880", typeof(Egn)},
         {"0777180969", typeof(Lnch)},
         {"0101006500006", typeof(YuPid)},
+        {"0213141001", typeof(Rzi)},
+        {"BG121708719", typeof(VatId)},
+        {"2280111356", typeof(NhifCode)},
+        {"1400000584", typeof(Uin)},
+        {"01.04", typeof(HealthRegion)},
     };
 
     public static Dictionary<string, Type> InorrectIdentifiers = new()
@@ -35,6 +42,11 @@ public class Tests
         {"0641056881", typeof(Egn)},
         {"0777180966", typeof(Lnch)},
         {"0101006500002", typeof(YuPid)},
+        {"1516111", typeof(Rzi)},
+        {"BG121708729", typeof(VatId)},
+        {"2283111356", typeof(NhifCode)},
+        {"0000000000", typeof(Uin)},
+        {"44.01", typeof(HealthRegion)},
     };
 
     [Test]

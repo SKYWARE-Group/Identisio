@@ -1,10 +1,11 @@
-﻿// Ignore Spelling: Egn, Lnch, Yu, Pid, Eik, Iban
+﻿// Ignore Spelling: Egn, Lnch, Yu, Pid, Eik, Iban, Rzi, Vat, Nhif, Uin
 using FluentValidation;
 using Skyware.Identisio.Banking;
 using Skyware.Identisio.FluentValidation.Validators;
 using Skyware.Identisio.Individuals.Bg;
 using Skyware.Identisio.Individuals.Yu;
 using Skyware.Identisio.Organizations.Bg;
+using Skyware.Identisio.Spatial.Bg;
 
 namespace Skyware.Identisio.FluentValidation;
 
@@ -25,5 +26,20 @@ public static class FluentValidationExtensions
 
     public static IRuleBuilderOptions<T, string?> IsValidIban<T>(this IRuleBuilder<T, string> ruleBuilder) =>
         ruleBuilder.SetValidator(new IdentifierValidator<Iban>());
+
+    public static IRuleBuilderOptions<T, string?> IsValidRzi<T>(this IRuleBuilder<T, string> ruleBuilder) =>
+        ruleBuilder.SetValidator(new IdentifierValidator<Rzi>());
+
+    public static IRuleBuilderOptions<T, string?> IsValidVatId<T>(this IRuleBuilder<T, string> ruleBuilder) =>
+        ruleBuilder.SetValidator(new IdentifierValidator<VatId>());
+
+    public static IRuleBuilderOptions<T, string?> IsValidNhifCode<T>(this IRuleBuilder<T, string> ruleBuilder) =>
+        ruleBuilder.SetValidator(new IdentifierValidator<NhifCode>());
+
+    public static IRuleBuilderOptions<T, string?> IsValidUin<T>(this IRuleBuilder<T, string> ruleBuilder) =>
+        ruleBuilder.SetValidator(new IdentifierValidator<Uin>());
+
+    public static IRuleBuilderOptions<T, string?> IsValidHealthRegion<T>(this IRuleBuilder<T, string> ruleBuilder) =>
+        ruleBuilder.SetValidator(new IdentifierValidator<HealthRegion>());
 
 }
